@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cunwb2jhgbeey"]
+
+[ext_resource type="Script" path="res://Balas/bala_base.gd" id="1_pyywe"]
+[ext_resource type="Texture2D" uid="uid://dsbqcboovoh5w" path="res://Assets/Disparos/shoot1.png" id="2_f2ri6"]
+[ext_resource type="AudioStream" uid="uid://ldwlaxkistn0" path="res://Assets/Disparos/sounds/Shoot.ogg" id="3_o24u1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulkgh"]
+radius = 7.0
+
+[node name="BalaBase" type="Area2D" groups=["Bala"]]
+script = ExtResource("1_pyywe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_f2ri6")
+region_rect = Rect2(230, 240, 60, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ulkgh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.7, 1)
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o24u1")
+volume_db = -6.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

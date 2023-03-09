@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ded2gqqp3ddqj"]
+
+[ext_resource type="Script" path="res://Enemigo/enemigo.gd" id="1_2wi1a"]
+[ext_resource type="Texture2D" uid="uid://dvynga487xyp0" path="res://Assets/enemigos/enemigo1.png" id="1_dcllu"]
+[ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_sk5n6"]
+[ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="3_b8uit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6voja"]
+size = Vector2(72, 100)
+
+[node name="Enemigo" type="Area2D" groups=["Enemigo"]]
+script = ExtResource("1_2wi1a")
+Explosion = ExtResource("2_sk5n6")
+PowerUp = ExtResource("3_b8uit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_dcllu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_6voja")
+
+[node name="ExplosionSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 57)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(3.24, 4.28)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

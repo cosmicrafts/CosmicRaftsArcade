@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw8oa2w2nmqd0"
+path="res://.godot/imported/Game Over.ogg-c569d10beb607db50e56eaf609a0d47f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Hub/music/Game Over.ogg"
+dest_files=["res://.godot/imported/Game Over.ogg-c569d10beb607db50e56eaf609a0d47f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

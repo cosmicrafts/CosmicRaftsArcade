@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkwyyqgvktuef"]
+
+[ext_resource type="Texture2D" uid="uid://ct540c0viltvj" path="res://Assets/PowerUp/powerup.png" id="1_uh3fv"]
+[ext_resource type="Script" path="res://PowerUp/power_up.gd" id="1_v2utc"]
+[ext_resource type="AudioStream" uid="uid://b53kr42yaamqn" path="res://Assets/PowerUp/powerup.wav" id="3_8b56k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df1jc"]
+size = Vector2(48, 48)
+
+[node name="PowerUp" type="Area2D"]
+script = ExtResource("1_v2utc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uh3fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_df1jc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.86102e-06, 7.15256e-07)
+scale = Vector2(2.2, 2.2)
+
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8b56k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="finished" from="Sonido" to="." method="_on_sonido_finished"]

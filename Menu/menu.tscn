@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmxdf0oueqsw2"]
+
+[ext_resource type="AudioStream" uid="uid://p2gaincyh1e" path="res://Assets/menu/music/New Hope.ogg" id="1_6yxgv"]
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_ch35w"]
+[ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="3_aski4"]
+[ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="3_mgh5r"]
+[ext_resource type="Texture2D" uid="uid://v3sd5a28j5wu" path="res://Assets/menu/sprites/WoU_logo_50porciento.png" id="4_qf2ti"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch35w")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_6yxgv")
+volume_db = -10.0
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-138, -3)
+scale = Vector2(2.56, 2.56)
+texture = ExtResource("3_mgh5r")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 575.0
+grow_horizontal = 2
+
+[node name="WoU" type="TextureRect" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_qf2ti")
+stretch_mode = 3
+
+[node name="CosmicraftsArcade" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aski4")
+theme_override_font_sizes/font_size = 99
+text = "Cosmicrafts
+Arcade"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.32549, 0.701961, 1, 1)
+theme_override_fonts/font = ExtResource("3_aski4")
+theme_override_font_sizes/font_size = 51
+text = "Start"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.0509804, 0.564706, 1, 1)
+theme_override_fonts/font = ExtResource("3_aski4")
+theme_override_font_sizes/font_size = 51
+text = "Exit"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+
+[node name="Footer" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_aski4")
+theme_override_font_sizes/font_size = 21
+text = "2023"
+
+[connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Exit" to="." method="_on_exit_pressed"]

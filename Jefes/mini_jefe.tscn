@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4l7k1ciir6lj"]
+
+[ext_resource type="Script" path="res://Jefes/mini_jefe.gd" id="1_ek0xd"]
+[ext_resource type="Texture2D" uid="uid://dekn74q75mffp" path="res://Assets/enemigos/miniJefe1.png" id="1_yuhyt"]
+[ext_resource type="PackedScene" uid="uid://dt3gbpr2y8ghi" path="res://Balas/bala_mini_jefe.tscn" id="2_af5nm"]
+[ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="3_u2jpu"]
+[ext_resource type="PackedScene" uid="uid://c3s614eevyms4" path="res://Jefes/barrera.tscn" id="5_y4owc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa8ja"]
+size = Vector2(140, 195)
+
+[node name="MiniJefe" type="Area2D" groups=["Jefe"]]
+script = ExtResource("1_ek0xd")
+Bala = ExtResource("2_af5nm")
+Explosion = ExtResource("3_u2jpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yuhyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_oa8ja")
+
+[node name="Bala" type="Marker2D" parent="."]
+position = Vector2(0, 120)
+
+[node name="BalaTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ExplosionPosicion" type="Marker2D" parent="."]
+position = Vector2(0, 59)
+
+[node name="Barrera" parent="." instance=ExtResource("5_y4owc")]
+position = Vector2(0, 142)
+scale = Vector2(8, 0.320001)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -5.5)
+scale = Vector2(7, 9.75)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="timeout" from="BalaTimer" to="." method="_on_bala_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

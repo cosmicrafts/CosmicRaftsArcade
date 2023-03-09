@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://k4efs4sopgl8"]
+
+[ext_resource type="Script" path="res://Enemigo/asteroide_10.gd" id="1_f30pw"]
+[ext_resource type="Texture2D" uid="uid://dxe7i6l4yvsfy" path="res://Assets/enemigos/Asteroid10.png" id="1_gfy47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ediyn"]
+radius = 60.1332
+
+[node name="Asteroide10" type="Area2D" groups=["Enemigo"]]
+script = ExtResource("1_f30pw")
+speed = Vector2(80, 40)
+health = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gfy47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ediyn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.500002, 0.999997)
+scale = Vector2(4.05, 4.3)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

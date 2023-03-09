@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3s614eevyms4"]
+
+[sub_resource type="Gradient" id="Gradient_d4v83"]
+colors = PackedColorArray(0.931212, 0.549048, 0, 1, 0.601344, 0.291424, 0.000552541, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wk4bi"]
+gradient = SubResource("Gradient_d4v83")
+fill_from = Vector2(0, 0.376068)
+fill_to = Vector2(0, 0.615385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrgsc"]
+
+[node name="Barrera" type="Area2D" groups=["Barrera"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.55651e-07, 0)
+scale = Vector2(0.3125, 0.3125)
+texture = SubResource("GradientTexture2D_wk4bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vrgsc")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt3gbpr2y8ghi"]
+
+[ext_resource type="Script" path="res://Balas/bala_mini_jefe.gd" id="1_jm1sv"]
+[ext_resource type="Texture2D" uid="uid://dsbqcboovoh5w" path="res://Assets/Disparos/shoot1.png" id="2_7ioai"]
+[ext_resource type="AudioStream" uid="uid://ldwlaxkistn0" path="res://Assets/Disparos/sounds/Shoot.ogg" id="3_u65e6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulkgh"]
+radius = 7.0
+
+[node name="BalaMiniJefe" type="Area2D" groups=["Bala"]]
+script = ExtResource("1_jm1sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.905882, 0, 0.0666667, 1)
+rotation = 1.5708
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_7ioai")
+region_rect = Rect2(230, 240, 60, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ulkgh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.7, 1)
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u65e6")
+volume_db = -6.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

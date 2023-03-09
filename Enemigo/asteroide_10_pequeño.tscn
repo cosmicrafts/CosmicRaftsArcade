@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://boiw64sdl8ui"]
+
+[ext_resource type="Script" path="res://Enemigo/asteroide_10_pequeño.gd" id="1_046x1"]
+[ext_resource type="Texture2D" uid="uid://csk0intivj8fy" path="res://Assets/enemigos/Asteroid10_pequeño.png" id="1_audls"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us0li"]
+radius = 28.0
+
+[node name="Asteroide10Pequeño" type="Area2D" groups=["Enemigo"]]
+script = ExtResource("1_046x1")
+health = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_audls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_us0li")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-3.57628e-07, -1.87755e-06)
+scale = Vector2(1.9, 1.9)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
