@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2eg8mhh1chbh"]
+[gd_scene load_steps=16 format=3 uid="uid://b2eg8mhh1chbh"]
 
-[ext_resource type="PackedScene" uid="uid://dhq27k5ki1rrl" path="res://Player/player.tscn" id="1_eghf2"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
 [ext_resource type="Texture2D" uid="uid://ca1utrff242rd" path="res://Assets/Parallax/Star_background_1.png" id="3_3f6sf"]
 [ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="3_onmgj"]
@@ -22,9 +21,6 @@ script = ExtResource("1_i0ap0")
 Enemigo = ExtResource("10_8eutm")
 MiniJefe = ExtResource("13_egbun")
 Asteroide = ExtResource("4_dqtxg")
-
-[node name="Player" parent="." instance=ExtResource("1_eghf2")]
-position = Vector2(394, 1368)
 
 [node name="Fondo" type="ParallaxBackground" parent="."]
 script = ExtResource("3_onmgj")
@@ -124,7 +120,9 @@ autostart = true
 [node name="PowerUp" parent="." instance=ExtResource("16_mb1v7")]
 position = Vector2(480, -62)
 
-[connection signal="tree_exiting" from="Player" to="Hub" method="_on_player_tree_exiting"]
+[node name="PosicionPlayer" type="Marker2D" parent="."]
+position = Vector2(393, 1477)
+
 [connection signal="game_over" from="Hub" to="." method="_on_hub_game_over"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="TimerInicioMiniJefe" to="." method="_on_timer_inicio_mini_jefe_timeout"]

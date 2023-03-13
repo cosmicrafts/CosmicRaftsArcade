@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://l42l6x0olhkq"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_4c58e"]
+[ext_resource type="Texture2D" uid="uid://bbtr0cdwujcph" path="res://Assets/Player/player2.png" id="2_bi1km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3g"]
+size = Vector2(68, 103)
+
+[node name="Player2" type="CharacterBody2D" groups=["Player"]]
+input_pickable = true
+script = ExtResource("1_4c58e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.494118, 0.490196, 1)
+rotation = 3.14159
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bi1km")
+region_rect = Rect2(14, 252, 162, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1jb3g")
+
+[node name="BalaPosicion" type="Marker2D" parent="."]
+position = Vector2(0, -75)
+
+[node name="BalaTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="BalaTimer" to="." method="_on_bala_timer_timeout"]

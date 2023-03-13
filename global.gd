@@ -7,6 +7,7 @@ extends Node
 # velocidad de disparo del player
 @onready var bala_timer:float = 1.0
 
+var player: String
 
 func random(min_number, max_number):
 	rng.randomize()

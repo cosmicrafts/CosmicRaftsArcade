@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgydytadyt221"
-path="res://.godot/imported/Shoot_000.png-4e841be519a186126a4925561bc31db1.ctex"
+uid="uid://br60q5jgprxwm"
+path="res://.godot/imported/Starry.jpg-3424f3a1d425f9f9aed4f2b7a3c520a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Disparos/Shoot_000.png"
-dest_files=["res://.godot/imported/Shoot_000.png-4e841be519a186126a4925561bc31db1.ctex"]
+source_file="res://Assets/Parallax/Starry.jpg"
+dest_files=["res://.godot/imported/Starry.jpg-3424f3a1d425f9f9aed4f2b7a3c520a4.ctex"]
 
 [params]
 

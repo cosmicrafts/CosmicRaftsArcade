@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c61negayqnsmh"]
+
+[ext_resource type="Script" path="res://Menu/seleccion_naves.gd" id="1_84au8"]
+[ext_resource type="Texture2D" uid="uid://bbtr0cdwujcph" path="res://Assets/Player/player2.png" id="1_u411c"]
+[ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="3_xxhj8"]
+[ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="4_7u72c"]
+[ext_resource type="Texture2D" uid="uid://br60q5jgprxwm" path="res://Assets/Parallax/Starry.jpg" id="5_t5chw"]
+
+[node name="SeleccionNaves" type="Node2D"]
+script = ExtResource("1_84au8")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = 332.0
+offset_right = 628.0
+offset_bottom = 724.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="player" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_u411c")
+flat = true
+
+[node name="player2" type="Button" parent="BoxContainer/HBoxContainer"]
+modulate = Color(1, 0.498039, 0.478431, 1)
+layout_mode = 2
+icon = ExtResource("1_u411c")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 218.0
+offset_right = 676.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("3_xxhj8")
+theme_override_font_sizes/font_size = 58
+text = "Seleccionar Nave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Planeta" type="ParallaxBackground" parent="."]
+script = ExtResource("4_7u72c")
+speed = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta"]
+position = Vector2(-1, 0)
+motion_mirroring = Vector2(0, 1920)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta/ParallaxLayer"]
+texture = ExtResource("5_t5chw")
+centered = false
+
+[connection signal="pressed" from="BoxContainer/HBoxContainer/player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/player2" to="." method="_on_player_2_pressed"]

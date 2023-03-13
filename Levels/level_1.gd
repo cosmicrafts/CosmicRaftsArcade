@@ -5,6 +5,7 @@ extends Node2D
 @export var MiniJefe:PackedScene
 @export var Asteroide:PackedScene
 
+var player: CharacterBody2D
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK) # color de fondo
@@ -12,6 +13,11 @@ func _ready():
 	$BgMusic.play()
 	$EnemyTimer.start()
 	randomize()
+	
+	# instanciar nave del juegador
+	player = load(Global.player).instantiate()
+	player.global_position = $PosicionPlayer.global_position
+	add_child(player)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
