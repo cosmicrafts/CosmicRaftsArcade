@@ -36,6 +36,7 @@ func _physics_process(delta):
 		
 		# apuntar hacia donde se va desplazar el mini jefe (embestida_Ataque)
 		direccion = position.direction_to(player.position)
+		#direccion = position.direction_to(Global.player.position)
 
 
 func mover(delta):
@@ -64,6 +65,8 @@ func mover(delta):
 
 func embestir_ataque(delta):
 	#position += velocity * delta
+	$Barrera.get_node("CollisionShape2D").disabled = false
+	$Barrera.get_node("Sprite2D").visible = true
 	position += direccion * delta * velocidad_embestida
 
 func disparar():
@@ -106,7 +109,7 @@ func _on_tree_exiting():
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	embestir = false
 	position = Vector2(350, -55)
-	$Barrera.get_node("CollisionShape2D").disabled = false
-	$Barrera.get_node("Sprite2D").visible = true
+	#$Barrera.get_node("CollisionShape2D").disabled = false
+	#$Barrera.get_node("Sprite2D").visible = true
 	derecha = false
 	izquierda = false
