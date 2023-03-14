@@ -30,8 +30,8 @@ func _on_restart_pressed():
 	#get_tree().paused = false
 
 
-func _on_player_tree_exiting():
-	juego_terminado()
+#func _on_player_tree_exiting():
+#	juego_terminado()
 
 func juego_ganado():
 	$WonContainer.visible = true

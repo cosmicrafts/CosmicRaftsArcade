@@ -35,9 +35,13 @@ func _on_input_event(viewport, event, shape_idx):
 func disparar():
 	if puede_disparar:
 		var bala = Bala.instantiate()
+		#var bala2 = Bala.instantiate()
 		#add_child(bala)
 		get_parent().add_child(bala)
+		#get_parent().add_child(bala2)
 		bala.global_position = $BalaPosicion.global_position
+		#bala2.global_position = $BalaPosicion2.global_position
+		
 	
 		puede_disparar = false
 
@@ -46,3 +50,8 @@ func _on_bala_timer_timeout():
 	puede_disparar = true
 	
 	$BalaTimer.wait_time = Global.bala_timer
+
+
+func _on_tree_exiting():
+	var hub = get_node("/root/Level1/Hub")
+	hub.juego_terminado()

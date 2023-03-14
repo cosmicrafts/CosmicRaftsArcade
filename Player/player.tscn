@@ -27,4 +27,5 @@ position = Vector2(0, -75)
 autostart = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="BalaTimer" to="." method="_on_bala_timer_timeout"]
