@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ded2gqqp3ddqj"]
+[gd_scene load_steps=7 format=3 uid="uid://ded2gqqp3ddqj"]
 
 [ext_resource type="Script" path="res://Enemigo/enemigo.gd" id="1_2wi1a"]
 [ext_resource type="Texture2D" uid="uid://dvynga487xyp0" path="res://Assets/enemigos/enemigo1.png" id="1_dcllu"]
 [ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_sk5n6"]
 [ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="3_b8uit"]
+[ext_resource type="PackedScene" uid="uid://bcu4gia2hxb2m" path="res://PowerUp/cañon_powerup.tscn" id="4_33v4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6voja"]
 size = Vector2(72, 100)
@@ -12,6 +13,7 @@ size = Vector2(72, 100)
 script = ExtResource("1_2wi1a")
 Explosion = ExtResource("2_sk5n6")
 PowerUp = ExtResource("3_b8uit")
+"CañonPowerUp" = ExtResource("4_33v4f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)

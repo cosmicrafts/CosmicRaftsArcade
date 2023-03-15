@@ -21,8 +21,14 @@ region_rect = Rect2(14, 252, 162, 94)
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_1jb3g")
 
-[node name="BalaPosicion" type="Marker2D" parent="."]
+[node name="BalaPosicion1" type="Marker2D" parent="."]
 position = Vector2(0, -75)
+
+[node name="BalaPosicion2" type="Marker2D" parent="."]
+position = Vector2(-29, -75)
+
+[node name="BalaPosicion3" type="Marker2D" parent="."]
+position = Vector2(28, -75)
 
 [node name="BalaTimer" type="Timer" parent="."]
 autostart = true

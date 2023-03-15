@@ -34,13 +34,28 @@ func _on_input_event(viewport, event, shape_idx):
 
 func disparar():
 	if puede_disparar:
-		var bala = Bala.instantiate()
-		#var bala2 = Bala.instantiate()
-		#add_child(bala)
-		get_parent().add_child(bala)
-		#get_parent().add_child(bala2)
-		bala.global_position = $BalaPosicion.global_position
-		#bala2.global_position = $BalaPosicion2.global_position
+		match Global.cañon:
+			1:
+				var bala = Bala.instantiate()
+				get_parent().add_child(bala)
+				bala.global_position = $BalaPosicion1.global_position
+			2:
+				var bala2 = Bala.instantiate()
+				var bala3 = Bala.instantiate()
+				get_parent().add_child(bala2)
+				get_parent().add_child(bala3)
+				bala2.global_position = $BalaPosicion2.global_position
+				bala3.global_position = $BalaPosicion3.global_position
+			3:
+				var bala1 = Bala.instantiate()
+				var bala2 = Bala.instantiate()
+				var bala3 = Bala.instantiate()
+				get_parent().add_child(bala1)
+				get_parent().add_child(bala2)
+				get_parent().add_child(bala3)
+				bala1.global_position = $BalaPosicion1.global_position
+				bala2.global_position = $BalaPosicion2.global_position
+				bala3.global_position = $BalaPosicion3.global_position
 		
 	
 		puede_disparar = false

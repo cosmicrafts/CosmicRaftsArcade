@@ -2,10 +2,11 @@ extends Area2D
 
 @export var Explosion:PackedScene
 @export var PowerUp:PackedScene
+@export var CañonPowerUp:PackedScene
 var speed
 
 func _ready():
-	speed = Global.random(99, 620)
+	speed = Global.random(99, 720)
 
 
 func _physics_process(delta):
@@ -28,7 +29,7 @@ func _on_area_entered(area):
 		queue_free()
 		#print("random:", Global.random(0, 5))
 		# probabilidad que salga un powerup al morir enemigo
-		if Global.random(0, 11) < 1:
+		if Global.random(0, 12) < 1:
 			power_up()
 
 
@@ -39,11 +40,15 @@ func _on_body_entered(body):
 
 
 func power_up():
-	var power_up = PowerUp.instantiate()
-	#add_child(power_up)
-	#get_parent().add_child(power_up)
-	get_parent().call_deferred("add_child", power_up)
-	power_up.global_position = global_position
+	var opcion = Global.random(0, 3) # probabilidad entre un cañon o velocidad de disparo
+	if opcion < 2:
+		var power_up = PowerUp.instantiate()
+		get_parent().call_deferred("add_child", power_up)
+		power_up.global_position = global_position
+	elif opcion > 2:
+		var cañon = CañonPowerUp.instantiate()
+		get_parent().call_deferred("add_child", cañon)
+		cañon.global_position = global_position
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

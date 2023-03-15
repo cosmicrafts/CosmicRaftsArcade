@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcu4gia2hxb2m"]
+
+[ext_resource type="Texture2D" uid="uid://cotc5stron36o" path="res://Assets/PowerUp/cañon.png" id="1_mi765"]
+[ext_resource type="Script" path="res://PowerUp/cañon_powerup.gd" id="1_yr663"]
+[ext_resource type="AudioStream" uid="uid://b53kr42yaamqn" path="res://Assets/PowerUp/powerup.wav" id="3_13kwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df1jc"]
+size = Vector2(57, 42)
+
+[node name="CañonPowerUp" type="Area2D"]
+script = ExtResource("1_yr663")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mi765")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_df1jc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.499999, 3)
+scale = Vector2(2.75, 2)
+
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_13kwg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="finished" from="Sonido" to="." method="_on_sonido_finished"]
