@@ -18,16 +18,13 @@ var direccion
 
 var velocidad_embestida = 650 # la velocidad de embestida
 
-func _ready():
-	pass
-
 func _physics_process(delta):
 	if !embestir:
 		mover(delta)
 		disparar()
 	elif embestir:
 		#print("embestir")
-		embestir = true
+		#embestir = true
 		embestir_ataque(delta)
 		
 	if vida == 15 || vida == 10 || vida == 5:
@@ -113,3 +110,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	#$Barrera.get_node("Sprite2D").visible = true
 	derecha = false
 	izquierda = false
+
+
+func _on_body_entered(body):
+	body.queue_free()  # muere player

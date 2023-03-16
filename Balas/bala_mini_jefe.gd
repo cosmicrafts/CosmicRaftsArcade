@@ -1,13 +1,23 @@
 extends Area2D
 
-
+@onready var player = get_node("/root/Level1/Player")
 var speed
+#@onready var direccion = position.direction_to(player.position)
+var direccion
+var activo:bool = true
 
 func _ready():
 	speed = Global.random(99, 520)
+	#direccion = position.direction_to(player.position)
+	#direccion = global_position.direction_to(player.global_position)
 
 func _physics_process(delta):
-	global_position.y += speed * delta
+	#global_position.y += speed * delta
+	if activo:
+		direccion = position.direction_to(player.position)
+		activo = false
+	position += direccion * delta * speed
+	#global_position += direccion * delta * speed
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
