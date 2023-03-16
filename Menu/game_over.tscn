@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://dumajgs7pwcvi"]
+
+[ext_resource type="Script" path="res://Menu/game_over.gd" id="1_bx8ad"]
+[ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_wscrq"]
+[ext_resource type="AudioStream" uid="uid://bw8oa2w2nmqd0" path="res://Assets/menu/hud/music/Game Over.ogg" id="3_6wg8q"]
+
+[node name="GameOver" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bx8ad")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wscrq")
+theme_override_font_sizes/font_size = 94
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.223529, 0.505882, 1, 1)
+theme_override_fonts/font = ExtResource("1_wscrq")
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+flat = true
+
+[node name="Menu" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.376471, 0.564706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_wscrq")
+theme_override_font_sizes/font_size = 40
+text = "Menu"
+flat = true
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6wg8q")
+volume_db = -10.0
+
+[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Buttons/Menu" to="." method="_on_menu_pressed"]

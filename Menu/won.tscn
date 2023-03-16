@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehl7aid51rtj"]
+
+[ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_73v12"]
+[ext_resource type="Script" path="res://Menu/won.gd" id="1_g77ac"]
+
+[node name="Won" type="VBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g77ac")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_73v12")
+theme_override_font_sizes/font_size = 94
+text = "Ganaste
+Felicidades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.223529, 0.505882, 1, 1)
+theme_override_fonts/font = ExtResource("1_73v12")
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+flat = true
+
+[node name="Menu" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.376471, 0.564706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_73v12")
+theme_override_font_sizes/font_size = 40
+text = "Menu"
+flat = true
+
+[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Buttons/Menu" to="." method="_on_menu_pressed"]

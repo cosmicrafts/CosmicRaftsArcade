@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckns5d28x5jmo"]
+[gd_scene load_steps=3 format=3 uid="uid://ckns5d28x5jmo"]
 
 [ext_resource type="Script" path="res://Hub/hub.gd" id="1_dlxy5"]
-[ext_resource type="AudioStream" uid="uid://bw8oa2w2nmqd0" path="res://Assets/menu/hud/music/Game Over.ogg" id="1_fb1ab"]
 [ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="2_xshoc"]
 
 [node name="Hub" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_dlxy5")
-
-[node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_fb1ab")
-volume_db = -10.0
 
 [node name="ScoreContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -35,87 +30,3 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xshoc")
 theme_override_font_sizes/font_size = 35
 text = "0"
-
-[node name="GameOverContainer" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GameOverContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 94
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buttons" type="HBoxContainer" parent="GameOverContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Restart" type="Button" parent="GameOverContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.223529, 0.505882, 1, 1)
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 40
-text = "Restart"
-flat = true
-
-[node name="Menu" type="Button" parent="GameOverContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.376471, 0.564706, 0.980392, 1)
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 40
-text = "Menu"
-flat = true
-
-[node name="WonContainer" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="WonContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 94
-text = "Ganaste
-Felicidades"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buttons" type="HBoxContainer" parent="WonContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Restart" type="Button" parent="WonContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.223529, 0.505882, 1, 1)
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 40
-text = "Restart"
-flat = true
-
-[node name="Menu" type="Button" parent="WonContainer/Buttons"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.376471, 0.564706, 0.980392, 1)
-theme_override_fonts/font = ExtResource("2_xshoc")
-theme_override_font_sizes/font_size = 40
-text = "Menu"
-flat = true
-
-[connection signal="pressed" from="GameOverContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GameOverContainer/Buttons/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="WonContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="WonContainer/Buttons/Menu" to="." method="_on_menu_pressed"]
