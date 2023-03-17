@@ -90,17 +90,13 @@ func _on_area_entered(area):
 func muerte_mini_jefe():
 	queue_free()
 	explosion()
+	var hub = get_node("/root/Level1/Hub")
+	hub.juego_ganado()
 	
 func explosion():
 	var explosion = Explosion.instantiate()
 	explosion.global_position = $ExplosionPosicion.global_position
 	get_tree().call_group("Nivel", "add_child", explosion)
-
-
-func _on_tree_exiting():
-	var hub = get_node("/root/Level1/Hub")
-	hub.juego_ganado()
-	
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -114,3 +110,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_body_entered(body):
 	body.queue_free()  # muere player
+	var hub = get_node("/root/Level1/Hub")
+	hub.juego_terminado()

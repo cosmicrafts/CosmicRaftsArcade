@@ -65,8 +65,3 @@ func _on_bala_timer_timeout():
 	puede_disparar = true
 	
 	$BalaTimer.wait_time = Global.bala_timer
-
-
-func _on_tree_exiting():
-	var hub = get_node("/root/Level1/Hub")
-	hub.juego_terminado()

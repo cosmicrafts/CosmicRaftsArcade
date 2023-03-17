@@ -23,4 +23,5 @@ func juego_terminado():
 #	juego_terminado()
 
 func juego_ganado():
-	$WonContainer.visible = true
+	#$WonContainer.visible = true
+	get_tree().change_scene_to_file("res://Menu/won.tscn")

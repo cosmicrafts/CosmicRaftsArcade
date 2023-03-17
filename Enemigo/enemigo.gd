@@ -37,6 +37,8 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		death_enemy() 
 		body.queue_free()
+		var hub = get_node("/root/Level1/Hub")
+		hub.juego_terminado()
 
 
 func power_up():
