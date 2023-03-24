@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="CosmicratfsArcade"
-run/main_scene="res://Menu/menu.tscn"
+config/name="Cosmicratfs Arcade"
+run/main_scene="res://Menu/splash.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
