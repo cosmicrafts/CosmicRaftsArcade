@@ -1,0 +1,236 @@
+[gd_scene load_steps=20 format=3 uid="uid://bjurscsxj7x06"]
+
+[ext_resource type="Script" path="res://Menu/play.gd" id="1_k0ugw"]
+[ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="1_o4uxr"]
+[ext_resource type="Texture2D" uid="uid://uk1mu3cwil7v" path="res://Assets/menu/play/aniglen.png" id="2_7ih8g"]
+[ext_resource type="Texture2D" uid="uid://6yn715sx0ps6" path="res://Assets/menu/play/top.png" id="2_swyxp"]
+[ext_resource type="Texture2D" uid="uid://dnbslinq7hqmg" path="res://Assets/menu/play/Bottom.png" id="3_oilf6"]
+[ext_resource type="Texture2D" uid="uid://c681kpp31htw" path="res://Assets/menu/play/exp.png" id="4_qkksj"]
+[ext_resource type="Texture2D" uid="uid://dgsonctuf25ql" path="res://Assets/menu/play/token.png" id="5_a2yfs"]
+[ext_resource type="Texture2D" uid="uid://bvbvw28twoa3c" path="res://Assets/menu/play/arb.png" id="6_x6mut"]
+[ext_resource type="Texture2D" uid="uid://dxh4cbfcb8gx6" path="res://Assets/menu/play/avatar.png" id="7_0xk5m"]
+[ext_resource type="Texture2D" uid="uid://dl6y55giotepg" path="res://Assets/menu/play/Lv.png" id="8_c0yi6"]
+[ext_resource type="Texture2D" uid="uid://bi1wafo5uj7oh" path="res://Assets/menu/play/wallet.png" id="9_51382"]
+[ext_resource type="Texture2D" uid="uid://da3721u30w0sp" path="res://Assets/menu/play/settings.png" id="10_yht2o"]
+[ext_resource type="Texture2D" uid="uid://bh4lddlbamba3" path="res://Assets/menu/play/shop.png" id="11_3i47j"]
+[ext_resource type="Texture2D" uid="uid://5n1x3n7b32e8" path="res://Assets/menu/play/deck.png" id="12_1c52o"]
+[ext_resource type="Texture2D" uid="uid://cpw50pw8w15nl" path="res://Assets/menu/play/play.png" id="14_ophuu"]
+[ext_resource type="Texture2D" uid="uid://b2kk350abwth7" path="res://Assets/menu/play/social.png" id="14_xr2gh"]
+[ext_resource type="Texture2D" uid="uid://dr808ofxmfjlg" path="res://Assets/menu/play/hero.png" id="15_f31bx"]
+[ext_resource type="Texture2D" uid="uid://cfivgsj77esxe" path="res://Assets/menu/play/playBtn.png" id="16_t2rk0"]
+[ext_resource type="Texture2D" uid="uid://fdwoaxr4k70q" path="res://Assets/menu/play/aniship.png" id="17_fq7ay"]
+
+[node name="Play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0ugw")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o4uxr")
+metadata/_edit_lock_ = true
+
+[node name="AvatarNave" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 637.0
+offset_right = 1167.0
+offset_bottom = 2287.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7ih8g")
+metadata/_edit_lock_ = true
+
+[node name="FondoTop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 477.0
+offset_bottom = 664.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.52)
+texture = ExtResource("2_swyxp")
+metadata/_edit_lock_ = true
+
+[node name="FondotBottom" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 477.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_oilf6")
+metadata/_edit_lock_ = true
+
+[node name="Exp" type="Sprite2D" parent="."]
+position = Vector2(121, 83)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qkksj")
+metadata/_edit_lock_ = true
+
+[node name="Token" type="Sprite2D" parent="."]
+position = Vector2(390, 83)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_a2yfs")
+metadata/_edit_lock_ = true
+
+[node name="Arb" type="Sprite2D" parent="."]
+position = Vector2(611, 83)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_x6mut")
+metadata/_edit_lock_ = true
+
+[node name="Avatar" type="Sprite2D" parent="."]
+position = Vector2(63, 239)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7_0xk5m")
+metadata/_edit_lock_ = true
+
+[node name="Lv" type="Sprite2D" parent="."]
+position = Vector2(213, 279)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_c0yi6")
+metadata/_edit_lock_ = true
+
+[node name="Wallet" type="Sprite2D" parent="."]
+position = Vector2(575, 277)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_51382")
+metadata/_edit_lock_ = true
+
+[node name="Settings" type="Sprite2D" parent="."]
+position = Vector2(659, 209)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_yht2o")
+metadata/_edit_lock_ = true
+
+[node name="User" type="Label" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 172.0
+offset_right = 228.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 51
+text = "User"
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="#Web3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 172.0
+offset_right = 426.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0.352941, 0.552941, 1, 1)
+theme_override_font_sizes/font_size = 51
+text = "#Web3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Shop" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1452.0
+offset_right = 478.0
+offset_bottom = 1922.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("11_3i47j")
+metadata/_edit_lock_ = true
+
+[node name="Deck" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 1450.0
+offset_right = 612.0
+offset_bottom = 1920.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("12_1c52o")
+metadata/_edit_lock_ = true
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 1430.0
+offset_right = 752.0
+offset_bottom = 1900.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("14_ophuu")
+metadata/_edit_lock_ = true
+
+[node name="Hero" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 1445.0
+offset_right = 937.0
+offset_bottom = 1915.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("15_f31bx")
+metadata/_edit_lock_ = true
+
+[node name="Last" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 1447.0
+offset_right = 1068.0
+offset_bottom = 1917.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("14_xr2gh")
+metadata/_edit_lock_ = true
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 1029.0
+offset_right = 629.0
+offset_bottom = 1447.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("16_t2rk0")
+metadata/_edit_lock_ = true
+
+[node name="Nave" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 471.0
+offset_right = 634.0
+offset_bottom = 1076.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("17_fq7ay")
+metadata/_edit_lock_ = true
+
+[node name="NombreNave" type="Label" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 822.0
+offset_right = 369.0
+offset_bottom = 932.0
+theme_override_font_sizes/font_size = 78
+text = "Aniglen"
+metadata/_edit_lock_ = true
+
+[node name="TituloNave" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 920.0
+offset_right = 360.0
+offset_bottom = 976.0
+theme_override_font_sizes/font_size = 38
+text = "Galaxy Hopper"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Hero" to="." method="_on_hero_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Nave" to="." method="_on_nave_pressed"]

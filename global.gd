@@ -10,6 +10,7 @@ extends Node
 @onready var cañon: int = 1
 
 var player: String
+var nave: int
 
 func random(min_number, max_number):
 	rng.randomize()

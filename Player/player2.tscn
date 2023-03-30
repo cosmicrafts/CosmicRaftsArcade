@@ -1,24 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://l42l6x0olhkq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_4c58e"]
-[ext_resource type="Texture2D" uid="uid://bbtr0cdwujcph" path="res://Assets/Player/player2.png" id="2_bi1km"]
+[ext_resource type="Texture2D" uid="uid://dq6i4lyjh6cs5" path="res://Assets/Player/aniglen_ship.png" id="2_nd0at"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3g"]
-size = Vector2(68, 103)
+size = Vector2(68, 81)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 input_pickable = true
 script = ExtResource("1_4c58e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.494118, 0.490196, 1)
-rotation = 3.14159
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_bi1km")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_nd0at")
+flip_v = true
 region_rect = Rect2(14, 252, 162, 94)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1jb3g")
 
 [node name="BalaPosicion1" type="Marker2D" parent="."]
