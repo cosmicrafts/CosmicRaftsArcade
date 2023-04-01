@@ -10,12 +10,25 @@ var avatar_naves: Dictionary = {
 	1: "res://Assets/Player/aniglen_transparente.png"
 }
 
+var nombre_nave: Dictionary = {
+	0: "Skorn",
+	1: "Aniglen"
+}
+
+var titulo_nave: Dictionary = {
+	0: "Spaceborne Striker",
+	1: "Galaxy Hopper"
+}
+
 func _ready():
 	$Nave.texture_normal = load(naves[Global.nave])
 	$Nave.scale = Vector2(0.35, 0.35)
 	#$Nave.scale.y = 0.6
 	
 	$AvatarNave.texture = load(avatar_naves[Global.nave])
+	
+	$NombreNave.text = nombre_nave[Global.nave]
+	$TituloNave.text = titulo_nave[Global.nave]
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Levels/level_1.tscn")

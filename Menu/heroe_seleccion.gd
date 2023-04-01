@@ -10,18 +10,26 @@ var naves: Dictionary = {
 	1: "res://Assets/menu/hero_selector/aniglen_estadistica.png"
 }
 
+var fondo: Dictionary = {
+	0: "res://Assets/Player/SkornBG.jpg",
+	1: "res://Assets/Player/aniglen_transparente.png"
+}
+
 
 func _ready():
 	$NaveEstadistcas.texture = load(naves[Global.nave])
+	$Fondo.texture = load(fondo[Global.nave])
 
 
 func _on_izquierda_pressed():
 	if !naves_int < 1:
 		naves_int -= 1
 		$NaveEstadistcas.texture = load(naves[naves_int])
+		$Fondo.texture = load(fondo[naves_int])
 	elif naves_int < naves.size() -1 :
 		naves_int = naves.size() -1
 		$NaveEstadistcas.texture = load(naves[naves_int])
+		$Fondo.texture = load(fondo[naves_int])
 	
 	# asignar la nave seleccionada
 	asignar_nave()
@@ -31,9 +39,11 @@ func _on_derecha_pressed():
 	if naves_int < naves.size() - 1:
 		naves_int += 1
 		$NaveEstadistcas.texture = load(naves[naves_int])
+		$Fondo.texture = load(fondo[naves_int])
 	elif !naves_int < 1:
 		naves_int = 0
 		$NaveEstadistcas.texture = load(naves[naves_int])
+		$Fondo.texture = load(fondo[naves_int])
 	
 	asignar_nave()
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var selected = false
-var Bala = preload("res://Balas/bala_base.tscn")
+var Bala = preload("res://Balas/bala_skorn.tscn")
 var speed = 90
 
 var puede_disparar = true

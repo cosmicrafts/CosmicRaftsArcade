@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpqkvsepticim"]
+
+[ext_resource type="PackedScene" uid="uid://cunwb2jhgbeey" path="res://Balas/bala_base.tscn" id="1_g7utp"]
+[ext_resource type="Texture2D" uid="uid://dgydytadyt221" path="res://Assets/Disparos/Shoot_000.png" id="2_tws12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y84bh"]
+atlas = ExtResource("2_tws12")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts3sa"]
+atlas = ExtResource("2_tws12")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewq61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y84bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts3sa")
+}],
+"loop": true,
+"name": &"base",
+"speed": 3.0
+}]
+
+[node name="BalaSkorn" instance=ExtResource("1_g7utp")]
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+rotation = -1.5708
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_ewq61")
+animation = &"base"
