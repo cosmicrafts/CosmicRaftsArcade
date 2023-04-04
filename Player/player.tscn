@@ -1,7 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhq27k5ki1rrl"]
+[gd_scene load_steps=10 format=3 uid="uid://dhq27k5ki1rrl"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1qky6"]
 [ext_resource type="Texture2D" uid="uid://c0lyx0hk1b33u" path="res://Assets/Player/Skorn_Ship.png" id="2_6y0c6"]
+[ext_resource type="Texture2D" uid="uid://f38uurrbrc80" path="res://Assets/Propulsores/Thruster_01.png" id="2_n7bdx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_204vd"]
+atlas = ExtResource("2_n7bdx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opcaa"]
+atlas = ExtResource("2_n7bdx")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpgma"]
+atlas = ExtResource("2_n7bdx")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qccno"]
+atlas = ExtResource("2_n7bdx")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dinxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_204vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opcaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpgma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccno")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3g"]
 size = Vector2(84, 90)
@@ -9,6 +46,16 @@ size = Vector2(84, 90)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 input_pickable = true
 script = ExtResource("1_1qky6")
+
+[node name="Propulsor" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2, 40)
+rotation = 1.5708
+scale = Vector2(0.717605, 0.658686)
+sprite_frames = SubResource("SpriteFrames_dinxc")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.0164524
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)

@@ -18,11 +18,16 @@ func _physics_process(delta):
 
 func move_player(delta):
 	global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-	#print("mouse_position:", get_global_mouse_position())
-	#print("global_position:",global_position)
+	print("mouse_position:", get_global_mouse_position())
+	print("global_position:",global_position)
+	print("position:", position)
 	# limitar  movimiento  del personaje
 	#position.x = clamp(position.x, 0, screensize.x)
 	#position.y = clamp(position.y, 0, screensize.y)
+	if global_position.y > get_global_mouse_position().y + 0.25:  # le sumamos 0.25 ala cordenada "y" para ser ma exacto al acivar
+		$Propulsor.visible = true
+	else :
+		$Propulsor.visible = false
 
 
 func _on_input_event(viewport, event, shape_idx):

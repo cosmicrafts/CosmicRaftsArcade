@@ -1,10 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4l7k1ciir6lj"]
+[gd_scene load_steps=13 format=3 uid="uid://c4l7k1ciir6lj"]
 
 [ext_resource type="Script" path="res://Jefes/mini_jefe.gd" id="1_ek0xd"]
 [ext_resource type="Texture2D" uid="uid://dekn74q75mffp" path="res://Assets/enemigos/miniJefe1.png" id="1_yuhyt"]
 [ext_resource type="PackedScene" uid="uid://dt3gbpr2y8ghi" path="res://Balas/bala_mini_jefe.tscn" id="2_af5nm"]
 [ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="3_u2jpu"]
+[ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="4_b8d8b"]
 [ext_resource type="PackedScene" uid="uid://c3s614eevyms4" path="res://Jefes/barrera.tscn" id="5_y4owc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1n4p"]
+atlas = ExtResource("4_b8d8b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h11j8"]
+atlas = ExtResource("4_b8d8b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuk2t"]
+atlas = ExtResource("4_b8d8b")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t2o2"]
+atlas = ExtResource("4_b8d8b")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myady"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1n4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h11j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuk2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t2o2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oa8ja"]
 size = Vector2(140, 195)
@@ -13,6 +50,15 @@ size = Vector2(140, 195)
 script = ExtResource("1_ek0xd")
 Bala = ExtResource("2_af5nm")
 Explosion = ExtResource("3_u2jpu")
+
+[node name="Propulsor" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -109)
+scale = Vector2(2.22213, 1.88725)
+sprite_frames = SubResource("SpriteFrames_myady")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.997787
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yuhyt")

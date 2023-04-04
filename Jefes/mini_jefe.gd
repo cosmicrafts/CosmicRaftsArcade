@@ -65,6 +65,8 @@ func embestir_ataque(delta):
 	$Barrera.get_node("CollisionShape2D").disabled = false
 	$Barrera.get_node("Sprite2D").visible = true
 	position += direccion * delta * velocidad_embestida
+	
+	$Propulsor.visible = true
 
 func disparar():
 	if puede_disparar:
@@ -106,6 +108,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	#$Barrera.get_node("Sprite2D").visible = true
 	derecha = false
 	izquierda = false
+	$Propulsor.visible = false
 
 
 func _on_body_entered(body):

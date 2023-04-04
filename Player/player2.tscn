@@ -1,7 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://l42l6x0olhkq"]
+[gd_scene load_steps=10 format=3 uid="uid://l42l6x0olhkq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_4c58e"]
 [ext_resource type="Texture2D" uid="uid://dq6i4lyjh6cs5" path="res://Assets/Player/aniglen_ship.png" id="2_nd0at"]
+[ext_resource type="Texture2D" uid="uid://f38uurrbrc80" path="res://Assets/Propulsores/Thruster_01.png" id="2_wvuyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_204vd"]
+atlas = ExtResource("2_wvuyf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opcaa"]
+atlas = ExtResource("2_wvuyf")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpgma"]
+atlas = ExtResource("2_wvuyf")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qccno"]
+atlas = ExtResource("2_wvuyf")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcift"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_204vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opcaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpgma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccno")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3g"]
 size = Vector2(68, 81)
@@ -9,6 +46,15 @@ size = Vector2(68, 81)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 input_pickable = true
 script = ExtResource("1_4c58e")
+
+[node name="Propulsor" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2, 40)
+rotation = 1.5708
+scale = Vector2(0.717605, 0.658686)
+sprite_frames = SubResource("SpriteFrames_tcift")
+animation = &"move"
+autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
