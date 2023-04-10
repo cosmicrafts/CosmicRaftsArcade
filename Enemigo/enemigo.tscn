@@ -1,10 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://ded2gqqp3ddqj"]
+[gd_scene load_steps=13 format=3 uid="uid://ded2gqqp3ddqj"]
 
 [ext_resource type="Script" path="res://Enemigo/enemigo.gd" id="1_2wi1a"]
 [ext_resource type="Texture2D" uid="uid://dvynga487xyp0" path="res://Assets/enemigos/enemigo1.png" id="1_dcllu"]
 [ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_sk5n6"]
 [ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="3_b8uit"]
 [ext_resource type="PackedScene" uid="uid://bcu4gia2hxb2m" path="res://PowerUp/cañon_powerup.tscn" id="4_33v4f"]
+[ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="5_ebmtd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1n4p"]
+atlas = ExtResource("5_ebmtd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h11j8"]
+atlas = ExtResource("5_ebmtd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuk2t"]
+atlas = ExtResource("5_ebmtd")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t2o2"]
+atlas = ExtResource("5_ebmtd")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koqht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1n4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h11j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuk2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t2o2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6voja"]
 size = Vector2(72, 100)
@@ -14,6 +51,12 @@ script = ExtResource("1_2wi1a")
 Explosion = ExtResource("2_sk5n6")
 PowerUp = ExtResource("3_b8uit")
 "CañonPowerUp" = ExtResource("4_33v4f")
+
+[node name="Propulsor" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -45)
+sprite_frames = SubResource("SpriteFrames_koqht")
+animation = &"move"
+autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)

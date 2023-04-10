@@ -24,8 +24,8 @@ Global="*res://global.gd"
 window/size/viewport_width=720
 window/size/viewport_height=1600
 window/size/mode=2
-window/handheld/orientation=1
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [input]
 
@@ -37,6 +37,6 @@ click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-textures/canvas_textures/default_texture_filter=0

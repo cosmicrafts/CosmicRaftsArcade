@@ -6,5 +6,5 @@ func _ready():
 	$SoundExplosion.play()
 
 
-func _on_sound_explosion_finished():
+func _on_animated_sprite_2d_animation_finished():
 	queue_free()
