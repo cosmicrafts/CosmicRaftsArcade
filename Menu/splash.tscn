@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bem24kl0wlwo0"]
+[gd_scene load_steps=7 format=3 uid="uid://bem24kl0wlwo0"]
 
 [ext_resource type="Script" path="res://Menu/splash.gd" id="1_mcv67"]
 [ext_resource type="Texture2D" uid="uid://btmp642qptmn0" path="res://Assets/Splash/logo wou.png" id="1_qlymg"]
+[ext_resource type="AudioStream" uid="uid://d3k1y6n6u1t4w" path="res://Assets/Splash/electronic-kind-synth-texture_93bpm_B_major.wav" id="3_8s53q"]
 
 [sub_resource type="Animation" id="Animation_2x4ua"]
 resource_name = "Intro"
@@ -72,6 +73,10 @@ libraries = {
 wait_time = 0.2
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8s53q")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
