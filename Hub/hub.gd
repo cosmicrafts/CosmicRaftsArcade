@@ -13,6 +13,11 @@ func juego_terminado():
 	emit_signal("game_over")
 	#$GameOverContainer.visible = true
 	
+	# resetear la velocidad de disparo
+	Global.bala_timer = 1.0
+	# resetear numero de cañones de la nave
+	Global.cañon = 1
+	
 	get_tree().change_scene_to_file("res://Menu/game_over.tscn")
 	# pausamos el juego al morir, 
 	# Activar en la escena hub -> process -> always (para que no se detenga esa escena)

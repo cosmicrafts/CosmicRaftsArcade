@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddoaj65vavcyi"]
+[gd_scene load_steps=21 format=3 uid="uid://ddoaj65vavcyi"]
 
 [ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="1_0vnnh"]
 [ext_resource type="Script" path="res://Menu/heroe_seleccion.gd" id="1_lufrq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dde5db2pcv7f" path="res://Assets/menu/hero_selector/Skorn_Guide.png" id="16_nt74h"]
 [ext_resource type="Texture2D" uid="uid://bc5624rn6argn" path="res://Assets/menu/hero_selector/arrow.png" id="17_4ofp2"]
 [ext_resource type="Texture2D" uid="uid://dvjs703hukofv" path="res://Assets/menu/hero_selector/SELECT_bTN.png" id="19_bhm3c"]
+[ext_resource type="AudioStream" uid="uid://p2gaincyh1e" path="res://Assets/menu/music/New Hope.ogg" id="20_0oq17"]
 
 [node name="HeroeSeleccion" type="Control"]
 layout_mode = 3
@@ -225,6 +226,10 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("19_bhm3c")
 stretch_mode = 3
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_0oq17")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Izquierda" to="." method="_on_izquierda_pressed"]
