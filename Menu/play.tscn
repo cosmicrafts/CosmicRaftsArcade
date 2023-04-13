@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjurscsxj7x06"]
+[gd_scene load_steps=21 format=3 uid="uid://bjurscsxj7x06"]
 
 [ext_resource type="Script" path="res://Menu/play.gd" id="1_k0ugw"]
 [ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="1_o4uxr"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dr808ofxmfjlg" path="res://Assets/menu/play/hero.png" id="15_f31bx"]
 [ext_resource type="Texture2D" uid="uid://cfivgsj77esxe" path="res://Assets/menu/play/playBtn.png" id="16_t2rk0"]
 [ext_resource type="Texture2D" uid="uid://fdwoaxr4k70q" path="res://Assets/menu/play/aniship.png" id="17_fq7ay"]
+[ext_resource type="AudioStream" uid="uid://p2gaincyh1e" path="res://Assets/menu/music/New Hope.ogg" id="20_jgc0w"]
 
 [node name="Play" type="Control"]
 layout_mode = 3
@@ -230,6 +231,10 @@ offset_bottom = 976.0
 theme_override_font_sizes/font_size = 38
 text = "Galaxy Hopper"
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_jgc0w")
+autoplay = true
 
 [connection signal="pressed" from="Hero" to="." method="_on_hero_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

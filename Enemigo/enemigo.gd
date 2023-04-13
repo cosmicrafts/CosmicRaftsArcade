@@ -39,6 +39,7 @@ func _on_body_entered(body):
 		body.queue_free()
 		var hub = get_node("/root/Level1/Hub")
 		hub.juego_terminado()
+		
 
 
 func power_up():
