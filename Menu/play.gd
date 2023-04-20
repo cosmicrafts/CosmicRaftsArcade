@@ -1,7 +1,7 @@
 extends Control
 
 var naves: Dictionary = {
-	0: "res://Assets/Player/Skorn_Ship.png",
+	0: "res://Assets/Player/Skorn_Ship_256.png",
 	1: "res://Assets/Player/aniglen_ship.png"
 }
 
@@ -22,7 +22,7 @@ var titulo_nave: Dictionary = {
 
 func _ready():
 	$Nave.texture_normal = load(naves[Global.nave])
-	$Nave.scale = Vector2(0.35, 0.35)
+	#$Nave.scale = Vector2(0.35, 0.35)
 	#$Nave.scale.y = 0.6
 	
 	$AvatarNave.texture = load(avatar_naves[Global.nave])

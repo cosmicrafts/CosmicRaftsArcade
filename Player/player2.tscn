@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://l42l6x0olhkq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_4c58e"]
-[ext_resource type="Texture2D" uid="uid://dq6i4lyjh6cs5" path="res://Assets/Player/aniglen_ship.png" id="2_nd0at"]
+[ext_resource type="Texture2D" uid="uid://dem7f0m5pah4p" path="res://Assets/Player/aniglen_ship.png" id="2_nd0at"]
 [ext_resource type="Texture2D" uid="uid://f38uurrbrc80" path="res://Assets/Propulsores/Thruster_01.png" id="2_wvuyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_204vd"]
@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3g"]
-size = Vector2(68, 81)
+size = Vector2(78, 81)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 input_pickable = true
@@ -57,7 +57,7 @@ animation = &"move"
 autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.38, 0.38)
 texture = ExtResource("2_nd0at")
 flip_v = true
 region_rect = Rect2(14, 252, 162, 94)

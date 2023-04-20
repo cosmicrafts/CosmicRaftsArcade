@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/New Hope.ogg-42e9f06f1584b38f7beb69b778edcaad
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

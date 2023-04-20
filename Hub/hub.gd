@@ -29,4 +29,5 @@ func juego_terminado():
 
 func juego_ganado():
 	#$WonContainer.visible = true
+	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://Menu/won.tscn")

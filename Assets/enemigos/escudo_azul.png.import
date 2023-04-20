@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dem7f0m5pah4p"
-path="res://.godot/imported/aniglen_ship.png-d74ef5a9c2ce09c5f110eb71a4f62a3b.ctex"
+uid="uid://cfr8w12uydr2u"
+path="res://.godot/imported/escudo_azul.png-4df1419111eaf32a286a07d443e8a155.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/aniglen_ship.png"
-dest_files=["res://.godot/imported/aniglen_ship.png-d74ef5a9c2ce09c5f110eb71a4f62a3b.ctex"]
+source_file="res://Assets/enemigos/escudo_azul.png"
+dest_files=["res://.godot/imported/escudo_azul.png-4df1419111eaf32a286a07d443e8a155.ctex"]
 
 [params]
 

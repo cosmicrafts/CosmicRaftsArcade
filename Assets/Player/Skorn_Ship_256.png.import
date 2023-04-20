@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dem7f0m5pah4p"
-path="res://.godot/imported/aniglen_ship.png-d74ef5a9c2ce09c5f110eb71a4f62a3b.ctex"
+uid="uid://cfvo4v1f2imdm"
+path="res://.godot/imported/Skorn_Ship_256.png-602bfb3631320d61d5b44981f91bfeac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/aniglen_ship.png"
-dest_files=["res://.godot/imported/aniglen_ship.png-d74ef5a9c2ce09c5f110eb71a4f62a3b.ctex"]
+source_file="res://Assets/Player/Skorn_Ship_256.png"
+dest_files=["res://.godot/imported/Skorn_Ship_256.png-602bfb3631320d61d5b44981f91bfeac.ctex"]
 
 [params]
 

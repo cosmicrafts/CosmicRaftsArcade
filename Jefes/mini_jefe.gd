@@ -8,6 +8,7 @@ extends Area2D
 var derecha = false
 var izquierda = false
 var embestir = false
+var activado = true
 var speed_x = 99
 var speed_y = 26
 
@@ -27,9 +28,12 @@ func _physics_process(delta):
 		#embestir = true
 		embestir_ataque(delta)
 		
-	if vida == 15 || vida == 10 || vida == 5:
+	if (vida == 15 || vida == 10 || vida == 5) && !activado:
 		embestir = true
 		#look_at(player.position)
+		$Barrera.get_node("AnimationPlayer").play("activate")
+		$Propulsor.visible = true
+		activado = true
 		
 		# apuntar hacia donde se va desplazar el mini jefe (embestida_Ataque)
 		direccion = position.direction_to(player.position)
@@ -39,12 +43,15 @@ func _physics_process(delta):
 func mover(delta):
 	if position.y < 240:
 		position.y += speed_y * delta
-	else:
+	elif activado:
 		derecha = true
 		#$Barrera.visible = false
 		#$Barrera.set_deferred("disabled", true)
-		$Barrera.get_node("CollisionShape2D").disabled = true
-		$Barrera.get_node("Sprite2D").visible = false
+		#$Barrera.get_node("CollisionShape2D").disabled = true
+		#$Barrera.get_node("Sprite2D").visible = false
+		$Barrera.get_node("AnimationPlayer").play("desactivate")
+		activado = false
+		#print("deracha=true")
 
 	if izquierda:
 		position.x -= speed_x * delta
@@ -62,11 +69,12 @@ func mover(delta):
 
 func embestir_ataque(delta):
 	#position += velocity * delta
-	$Barrera.get_node("CollisionShape2D").disabled = false
-	$Barrera.get_node("Sprite2D").visible = true
+	#$Barrera.get_node("CollisionShape2D").disabled = false
+	#$Barrera.get_node("Sprite2D").visible = true
+	#$Barrera.get_node("AnimationPlayer").play("activate")
 	position += direccion * delta * velocidad_embestida
 	
-	$Propulsor.visible = true
+	#$Propulsor.visible = true
 
 func disparar():
 	if puede_disparar:
@@ -92,6 +100,7 @@ func _on_area_entered(area):
 func muerte_mini_jefe():
 	queue_free()
 	explosion()
+	#await get_tree().create_timer(2.0).timeout
 	var hub = get_node("/root/Level1/Hub")
 	hub.juego_ganado()
 	

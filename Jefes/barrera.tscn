@@ -1,21 +1,172 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3s614eevyms4"]
+[gd_scene load_steps=9 format=3 uid="uid://c3s614eevyms4"]
 
-[sub_resource type="Gradient" id="Gradient_d4v83"]
-colors = PackedColorArray(0.931212, 0.549048, 0, 1, 0.601344, 0.291424, 0.000552541, 1)
+[ext_resource type="Texture2D" uid="uid://cfr8w12uydr2u" path="res://Assets/enemigos/escudo_azul.png" id="1_1v5e5"]
+[ext_resource type="Script" path="res://Jefes/barrera.gd" id="1_wnl5s"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wk4bi"]
-gradient = SubResource("Gradient_d4v83")
-fill_from = Vector2(0, 0.376068)
-fill_to = Vector2(0, 0.615385)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrihd"]
+radius = 66.1891
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrgsc"]
+[sub_resource type="Animation" id="Animation_t7mb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.607843)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3125, 0.3125)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a0k1b"]
+resource_name = "activate"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.213, 0.213), Vector2(0.313, 0.313)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3ctqr"]
+resource_name = "damage"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.607843), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_43ail"]
+resource_name = "desactivate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.607843), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3125, 0.3125), Vector2(0.213, 0.213)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yoyx"]
+_data = {
+"RESET": SubResource("Animation_t7mb1"),
+"activate": SubResource("Animation_a0k1b"),
+"damage": SubResource("Animation_3ctqr"),
+"desactivate": SubResource("Animation_43ail")
+}
 
 [node name="Barrera" type="Area2D" groups=["Barrera"]]
+script = ExtResource("1_wnl5s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
 position = Vector2(-6.55651e-07, 0)
 scale = Vector2(0.3125, 0.3125)
-texture = SubResource("GradientTexture2D_wk4bi")
+texture = ExtResource("1_1v5e5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vrgsc")
+shape = SubResource("CircleShape2D_jrihd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0yoyx")
+}
+
+[node name="RecoverTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

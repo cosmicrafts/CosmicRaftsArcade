@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p28714p1mnrm"
-path="res://.godot/imported/starcraft_2_terran_spaceship_top-down_view_transparent.png-19a48f3e89916d654c84815244bd3455.ctex"
+uid="uid://bj6a6kv7yukdn"
+path="res://.godot/imported/Skorn_Ship_384.png-6bfc382f78b55edc0587f4ab03ac869e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/starcraft_2_terran_spaceship_top-down_view_transparent.png"
-dest_files=["res://.godot/imported/starcraft_2_terran_spaceship_top-down_view_transparent.png-19a48f3e89916d654c84815244bd3455.ctex"]
+source_file="res://Assets/Player/Skorn_Ship_384.png"
+dest_files=["res://.godot/imported/Skorn_Ship_384.png-6bfc382f78b55edc0587f4ab03ac869e.ctex"]
 
 [params]
 

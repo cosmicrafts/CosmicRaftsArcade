@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b2kk350abwth7" path="res://Assets/menu/play/social.png" id="14_xr2gh"]
 [ext_resource type="Texture2D" uid="uid://dr808ofxmfjlg" path="res://Assets/menu/play/hero.png" id="15_f31bx"]
 [ext_resource type="Texture2D" uid="uid://cfivgsj77esxe" path="res://Assets/menu/play/playBtn.png" id="16_t2rk0"]
-[ext_resource type="Texture2D" uid="uid://fdwoaxr4k70q" path="res://Assets/menu/play/aniship.png" id="17_fq7ay"]
+[ext_resource type="Texture2D" uid="uid://dem7f0m5pah4p" path="res://Assets/Player/aniglen_ship.png" id="19_bjliv"]
 [ext_resource type="AudioStream" uid="uid://p2gaincyh1e" path="res://Assets/menu/music/New Hope.ogg" id="20_jgc0w"]
 
 [node name="Play" type="Control"]
@@ -204,12 +204,12 @@ metadata/_edit_lock_ = true
 
 [node name="Nave" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 471.0
-offset_right = 634.0
-offset_bottom = 1076.0
-scale = Vector2(0.6, 0.6)
-texture_normal = ExtResource("17_fq7ay")
+offset_left = 45.0
+offset_top = 415.0
+offset_right = 301.0
+offset_bottom = 671.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("19_bjliv")
 metadata/_edit_lock_ = true
 
 [node name="NombreNave" type="Label" parent="."]
