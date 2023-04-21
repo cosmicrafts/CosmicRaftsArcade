@@ -1,5 +1,7 @@
 extends Area2D
 
+#var particles = preload("res://Balas/destroy_particles.tscn")
+
 const SPEED = 550
 
 
@@ -22,7 +24,26 @@ func _on_area_entered(area):
 		queue_free()
 	
 	if area.is_in_group("Jefe"):
+		#var particles_instance = particles.instantiate()
+		#add_child(particles_instance)
+		#particles_instance.global_position = position
+		#await get_tree().create_timer(1.0).timeout
+		
+		#borrar()
 		queue_free()
+		
+		
 	
 	if area.is_in_group("Barrera"):
 		queue_free()
+		#var particles_instance = particles.instantiate()
+		#add_child(particles_instance)
+		#particles_instance.global_position = position
+		
+		#visible = false
+		#$CollisionShape2D.disabled = true
+		#await get_tree().create_timer(1.0).timeout
+		#pass
+
+#func borrar():
+#	queue_free()

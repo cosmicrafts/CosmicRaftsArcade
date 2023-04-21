@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dclo72x370j77"]
+
+[ext_resource type="Script" path="res://Balas/destroy_particles.gd" id="1_taatv"]
+
+[sub_resource type="Curve" id="Curve_gfcmb"]
+max_value = 3.0
+_data = [Vector2(0, 2.97273), 0.0, 0.0, 0, 0, Vector2(0.778281, 1.06364), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="DestroyParticles" type="CPUParticles2D"]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.85
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 12.0
+angular_velocity_min = 21.0
+angular_velocity_max = 63.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_gfcmb")
+script = ExtResource("1_taatv")

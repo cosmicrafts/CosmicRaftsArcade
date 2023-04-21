@@ -29,5 +29,9 @@ func juego_terminado():
 
 func juego_ganado():
 	#$WonContainer.visible = true
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout  # experara animacion de explosion del jefe
+	# resetear la velocidad de disparo
+	Global.bala_timer = 1.0
+	# resetear numero de cañones de la nave
+	Global.cañon = 1
 	get_tree().change_scene_to_file("res://Menu/won.tscn")

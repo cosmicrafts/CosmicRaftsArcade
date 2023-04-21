@@ -12,7 +12,7 @@ var naves: Dictionary = {
 
 var fondo: Dictionary = {
 	0: "res://Assets/Player/SkornBG.jpg",
-	1: "res://Assets/Player/aniglen_transparente.png"
+	1: "res://Assets/Player/aniglen_fondo.jpg"
 }
 
 

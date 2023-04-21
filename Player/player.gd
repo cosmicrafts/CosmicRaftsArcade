@@ -38,7 +38,9 @@ func _on_input_event(viewport, event, shape_idx):
 
 
 func disparar():
+	$BalaTimer.wait_time = Global.bala_timer
 	if puede_disparar:
+		
 		match Global.cañon:
 			1:
 				var bala = Bala.instantiate()
@@ -69,4 +71,4 @@ func disparar():
 func _on_bala_timer_timeout():
 	puede_disparar = true
 	
-	$BalaTimer.wait_time = Global.bala_timer
+	#$BalaTimer.wait_time = Global.bala_timer

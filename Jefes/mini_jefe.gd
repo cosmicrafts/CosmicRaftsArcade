@@ -4,6 +4,7 @@ extends Area2D
 @export var Explosion:PackedScene
 @onready var player = get_node("/root/Level1/Player")
 #@export var Hub:PackedScene
+#var particles = preload("res://Balas/destroy_particles.tscn")
 
 var derecha = false
 var izquierda = false
@@ -12,7 +13,7 @@ var activado = true
 var speed_x = 99
 var speed_y = 26
 
-var vida = 20  # vida del mini jefe
+var vida = 25  # vida del mini jefe
 
 var puede_disparar = true
 var direccion
@@ -28,7 +29,7 @@ func _physics_process(delta):
 		#embestir = true
 		embestir_ataque(delta)
 		
-	if (vida == 15 || vida == 10 || vida == 5) && !activado:
+	if (vida == 20 || vida == 15 || vida == 10 || vida == 5) && !activado:
 		embestir = true
 		#look_at(player.position)
 		$Barrera.get_node("AnimationPlayer").play("activate")
@@ -92,7 +93,12 @@ func _on_bala_timer_timeout():
 
 func _on_area_entered(area):
 	if area.is_in_group("Bala"):
+		#var particles_instance = particles.instantiate()
+		#add_child(particles_instance)
+		#particles_instance.global_position = area.position
+		
 		vida -= 1
+		$AnimationPlayer.play("daño")  # daño a color rojo por un instante
 		#print("vida:",vida)
 		if vida <= 0:
 			muerte_mini_jefe()

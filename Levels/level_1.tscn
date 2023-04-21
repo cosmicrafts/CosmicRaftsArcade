@@ -46,6 +46,7 @@ texture = ExtResource("8_lhkf8")
 centered = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 script = ExtResource("3_onmgj")
 speed = 30
 
@@ -61,6 +62,7 @@ texture = ExtResource("3_3f6sf")
 centered = false
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+visible = false
 script = ExtResource("3_onmgj")
 speed = 60
 
@@ -76,6 +78,7 @@ texture = ExtResource("5_tl8br")
 centered = false
 
 [node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+visible = false
 script = ExtResource("3_onmgj")
 speed = 90
 

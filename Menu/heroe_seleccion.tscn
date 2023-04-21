@@ -135,10 +135,10 @@ metadata/_edit_lock_ = true
 
 [node name="Shop" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 1454.0
-offset_right = 486.0
-offset_bottom = 1914.0
+offset_left = 8.0
+offset_top = 1452.0
+offset_right = 488.0
+offset_bottom = 1922.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("11_rl1sc")
 metadata/_edit_lock_ = true
@@ -153,34 +153,34 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("12_rrdi3")
 metadata/_edit_lock_ = true
 
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 1430.0
+offset_right = 752.0
+offset_bottom = 1900.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("15_q3vhu")
+metadata/_edit_lock_ = true
+
 [node name="Hero" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 468.0
-offset_top = 1450.0
-offset_right = 938.0
-offset_bottom = 1920.0
+offset_left = 467.0
+offset_top = 1445.0
+offset_right = 937.0
+offset_bottom = 1915.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("13_hknap")
 metadata/_edit_lock_ = true
 
 [node name="Last" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 597.0
-offset_top = 1449.0
-offset_right = 1067.0
-offset_bottom = 1919.0
+offset_left = 598.0
+offset_top = 1447.0
+offset_right = 1068.0
+offset_bottom = 1917.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("13_qplc0")
-metadata/_edit_lock_ = true
-
-[node name="Play" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 282.0
-offset_top = 1427.0
-offset_right = 752.0
-offset_bottom = 1897.0
-scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("15_q3vhu")
 metadata/_edit_lock_ = true
 
 [node name="NaveEstadistcas" type="TextureRect" parent="."]

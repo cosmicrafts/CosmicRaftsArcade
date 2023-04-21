@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4l7k1ciir6lj"]
+[gd_scene load_steps=16 format=3 uid="uid://c4l7k1ciir6lj"]
 
 [ext_resource type="Script" path="res://Jefes/mini_jefe.gd" id="1_ek0xd"]
 [ext_resource type="Texture2D" uid="uid://dekn74q75mffp" path="res://Assets/enemigos/miniJefe1.png" id="1_yuhyt"]
@@ -46,6 +46,43 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oa8ja"]
 size = Vector2(140, 195)
 
+[sub_resource type="Animation" id="Animation_wxsdm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_do6sa"]
+resource_name = "daño"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lr2si"]
+_data = {
+"RESET": SubResource("Animation_wxsdm"),
+"daño": SubResource("Animation_do6sa")
+}
+
 [node name="MiniJefe" type="Area2D" groups=["Jefe"]]
 script = ExtResource("1_ek0xd")
 Bala = ExtResource("2_af5nm")
@@ -82,6 +119,11 @@ scale = Vector2(2, 2)
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -5.5)
 scale = Vector2(7, 9.75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lr2si")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

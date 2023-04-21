@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://bjurscsxj7x06"]
 
 [ext_resource type="Script" path="res://Menu/play.gd" id="1_k0ugw"]
-[ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="1_o4uxr"]
 [ext_resource type="Texture2D" uid="uid://uk1mu3cwil7v" path="res://Assets/menu/play/aniglen.png" id="2_7ih8g"]
+[ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="2_eeggi"]
 [ext_resource type="Texture2D" uid="uid://6yn715sx0ps6" path="res://Assets/menu/play/top.png" id="2_swyxp"]
 [ext_resource type="Texture2D" uid="uid://dnbslinq7hqmg" path="res://Assets/menu/play/Bottom.png" id="3_oilf6"]
 [ext_resource type="Texture2D" uid="uid://c681kpp31htw" path="res://Assets/menu/play/exp.png" id="4_qkksj"]
@@ -37,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_o4uxr")
+texture = ExtResource("2_eeggi")
 metadata/_edit_lock_ = true
 
 [node name="AvatarNave" type="TextureRect" parent="."]

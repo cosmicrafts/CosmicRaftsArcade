@@ -52,5 +52,6 @@ func _on_body_entered(body):
 func _on_area_entered(area):
 	if area.is_in_group("Bala"):
 		health -= 1
+		$AnimationPlayer.play("daño") # cambiar de colo cuando daño por un instante
 		if health <= 0:
 			kill()
