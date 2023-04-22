@@ -9,9 +9,10 @@ extends Area2D
 var derecha = false
 var izquierda = false
 var embestir = false
-var activado = true
+var activado = true  # para saber si el escudo esta activado
 var speed_x = 99
 var speed_y = 26
+var fase = 0 # 0-4 para activar cada fase y no se salten
 
 var vida = 25  # vida del mini jefe
 
@@ -23,18 +24,25 @@ var velocidad_embestida = 650 # la velocidad de embestida
 func _physics_process(delta):
 	if !embestir:
 		mover(delta)
+		
 		disparar()
 	elif embestir:
 		#print("embestir")
 		#embestir = true
 		embestir_ataque(delta)
 		
-	if (vida == 20 || vida == 15 || vida == 10 || vida == 5) && !activado:
+	#if (vida == 20 || vida == 15 || vida == 10 || vida == 5) && !activado:
+	if  ((vida <= 20 && fase == 0) ||
+		(vida <= 15 && fase == 1) ||
+		(vida <= 10 && fase == 2) ||
+		(vida <= 5 && fase == 3)) && !activado:
+		print("vida:",vida)
 		embestir = true
 		#look_at(player.position)
 		$Barrera.get_node("AnimationPlayer").play("activate")
 		$Propulsor.visible = true
 		activado = true
+		fase += 1
 		
 		# apuntar hacia donde se va desplazar el mini jefe (embestida_Ataque)
 		direccion = position.direction_to(player.position)
@@ -74,7 +82,7 @@ func embestir_ataque(delta):
 	#$Barrera.get_node("Sprite2D").visible = true
 	#$Barrera.get_node("AnimationPlayer").play("activate")
 	position += direccion * delta * velocidad_embestida
-	
+	print("vida_embestir:",vida)
 	#$Propulsor.visible = true
 
 func disparar():
@@ -99,13 +107,15 @@ func _on_area_entered(area):
 		
 		vida -= 1
 		$AnimationPlayer.play("daño")  # daño a color rojo por un instante
-		#print("vida:",vida)
+		print("vida_daño:",vida)
+		#activado = true
 		if vida <= 0:
 			muerte_mini_jefe()
 			
 func muerte_mini_jefe():
 	queue_free()
 	explosion()
+	#fase = 0
 	#await get_tree().create_timer(2.0).timeout
 	var hub = get_node("/root/Level1/Hub")
 	hub.juego_ganado()

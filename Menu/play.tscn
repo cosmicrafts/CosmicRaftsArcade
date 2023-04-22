@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjurscsxj7x06"]
+[gd_scene load_steps=25 format=3 uid="uid://bjurscsxj7x06"]
 
 [ext_resource type="Script" path="res://Menu/play.gd" id="1_k0ugw"]
 [ext_resource type="Texture2D" uid="uid://uk1mu3cwil7v" path="res://Assets/menu/play/aniglen.png" id="2_7ih8g"]
@@ -19,7 +19,69 @@
 [ext_resource type="Texture2D" uid="uid://dr808ofxmfjlg" path="res://Assets/menu/play/hero.png" id="15_f31bx"]
 [ext_resource type="Texture2D" uid="uid://cfivgsj77esxe" path="res://Assets/menu/play/playBtn.png" id="16_t2rk0"]
 [ext_resource type="Texture2D" uid="uid://dem7f0m5pah4p" path="res://Assets/Player/aniglen_ship.png" id="19_bjliv"]
+[ext_resource type="FontFile" uid="uid://ro2oehtjs3v" path="res://Assets/menu/play/DaysOne-Regular.ttf" id="20_i6gkg"]
 [ext_resource type="AudioStream" uid="uid://p2gaincyh1e" path="res://Assets/menu/music/New Hope.ogg" id="20_jgc0w"]
+
+[sub_resource type="Animation" id="Animation_w05b7"]
+resource_name = "boton_play"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(53, 1029), Vector2(24, 1029)]
+}
+
+[sub_resource type="Animation" id="Animation_idic1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 1029)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxop7"]
+_data = {
+"RESET": SubResource("Animation_idic1"),
+"boton_play": SubResource("Animation_w05b7")
+}
 
 [node name="Play" type="Control"]
 layout_mode = 3
@@ -165,9 +227,9 @@ metadata/_edit_lock_ = true
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 282.0
-offset_top = 1430.0
+offset_top = 1383.0
 offset_right = 752.0
-offset_bottom = 1900.0
+offset_bottom = 1853.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("14_ophuu")
 metadata/_edit_lock_ = true
@@ -194,13 +256,12 @@ metadata/_edit_lock_ = true
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 23.0
+offset_left = 24.0
 offset_top = 1029.0
-offset_right = 629.0
+offset_right = 630.0
 offset_bottom = 1447.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("16_t2rk0")
-metadata/_edit_lock_ = true
 
 [node name="Nave" type="TextureButton" parent="."]
 layout_mode = 0
@@ -218,6 +279,7 @@ offset_left = 85.0
 offset_top = 822.0
 offset_right = 369.0
 offset_bottom = 932.0
+theme_override_fonts/font = ExtResource("20_i6gkg")
 theme_override_font_sizes/font_size = 78
 text = "Aniglen"
 metadata/_edit_lock_ = true
@@ -228,6 +290,7 @@ offset_left = 88.0
 offset_top = 920.0
 offset_right = 360.0
 offset_bottom = 976.0
+theme_override_fonts/font = ExtResource("20_i6gkg")
 theme_override_font_sizes/font_size = 38
 text = "Galaxy Hopper"
 metadata/_edit_lock_ = true
@@ -236,6 +299,22 @@ metadata/_edit_lock_ = true
 stream = ExtResource("20_jgc0w")
 autoplay = true
 
+[node name="Play2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 1554.0
+offset_right = 400.0
+offset_bottom = 1584.0
+theme_override_fonts/font = ExtResource("20_i6gkg")
+theme_override_font_sizes/font_size = 21
+text = "PLAY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cxop7")
+}
+
 [connection signal="pressed" from="Hero" to="." method="_on_hero_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Nave" to="." method="_on_nave_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

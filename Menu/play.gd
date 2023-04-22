@@ -31,7 +31,9 @@ func _ready():
 	$TituloNave.text = titulo_nave[Global.nave]
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	$AnimationPlayer.play("boton_play")
+	#get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	#pass
 
 
 func _on_hero_pressed():
@@ -40,3 +42,9 @@ func _on_hero_pressed():
 
 func _on_nave_pressed():
 	get_tree().change_scene_to_file("res://Menu/heroe_seleccion.tscn")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	match anim_name:
+		"boton_play":
+			get_tree().call_deferred("change_scene_to_file","res://Levels/level_1.tscn")

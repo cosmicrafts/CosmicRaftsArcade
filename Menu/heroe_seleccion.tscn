@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddoaj65vavcyi"]
+[gd_scene load_steps=22 format=3 uid="uid://ddoaj65vavcyi"]
 
 [ext_resource type="Texture2D" uid="uid://jsdrx4fvismw" path="res://Assets/menu/sprites/planets_nebulas_asteroids_spaceships.png" id="1_0vnnh"]
 [ext_resource type="Script" path="res://Menu/heroe_seleccion.gd" id="1_lufrq"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://5n1x3n7b32e8" path="res://Assets/menu/play/deck.png" id="12_rrdi3"]
 [ext_resource type="Texture2D" uid="uid://dr808ofxmfjlg" path="res://Assets/menu/play/hero.png" id="13_hknap"]
 [ext_resource type="Texture2D" uid="uid://b2kk350abwth7" path="res://Assets/menu/play/social.png" id="13_qplc0"]
+[ext_resource type="FontFile" uid="uid://ro2oehtjs3v" path="res://Assets/menu/play/DaysOne-Regular.ttf" id="15_n2mnx"]
 [ext_resource type="Texture2D" uid="uid://cpw50pw8w15nl" path="res://Assets/menu/play/play.png" id="15_q3vhu"]
 [ext_resource type="Texture2D" uid="uid://dde5db2pcv7f" path="res://Assets/menu/hero_selector/Skorn_Guide.png" id="16_nt74h"]
 [ext_resource type="Texture2D" uid="uid://bc5624rn6argn" path="res://Assets/menu/hero_selector/arrow.png" id="17_4ofp2"]
@@ -163,12 +164,23 @@ scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("15_q3vhu")
 metadata/_edit_lock_ = true
 
+[node name="Hero2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 1554.0
+offset_right = 563.0
+offset_bottom = 1584.0
+theme_override_fonts/font = ExtResource("15_n2mnx")
+theme_override_font_sizes/font_size = 21
+text = "HERO"
+metadata/_edit_lock_ = true
+
 [node name="Hero" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 467.0
-offset_top = 1445.0
+offset_top = 1403.0
 offset_right = 937.0
-offset_bottom = 1915.0
+offset_bottom = 1873.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("13_hknap")
 metadata/_edit_lock_ = true
