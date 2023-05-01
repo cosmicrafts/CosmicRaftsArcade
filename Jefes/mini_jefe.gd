@@ -36,7 +36,7 @@ func _physics_process(delta):
 		(vida <= 15 && fase == 1) ||
 		(vida <= 10 && fase == 2) ||
 		(vida <= 5 && fase == 3)) && !activado:
-		print("vida:",vida)
+		#print("vida:",vida)
 		embestir = true
 		#look_at(player.position)
 		$Barrera.get_node("AnimationPlayer").play("activate")
@@ -53,7 +53,12 @@ func mover(delta):
 	if position.y < 240:
 		position.y += speed_y * delta
 	elif activado:
-		derecha = true
+		# Seleccionar si empieza a izquier o derecha
+		var opcion = Global.random(0, 2)
+		if opcion <= 1:
+			derecha = true
+		elif  opcion > 1:
+			izquierda = true
 		#$Barrera.visible = false
 		#$Barrera.set_deferred("disabled", true)
 		#$Barrera.get_node("CollisionShape2D").disabled = true
@@ -82,7 +87,7 @@ func embestir_ataque(delta):
 	#$Barrera.get_node("Sprite2D").visible = true
 	#$Barrera.get_node("AnimationPlayer").play("activate")
 	position += direccion * delta * velocidad_embestida
-	print("vida_embestir:",vida)
+	#print("vida_embestir:",vida)
 	#$Propulsor.visible = true
 
 func disparar():
@@ -107,7 +112,7 @@ func _on_area_entered(area):
 		
 		vida -= 1
 		$AnimationPlayer.play("daño")  # daño a color rojo por un instante
-		print("vida_daño:",vida)
+		#print("vida_daño:",vida)
 		#activado = true
 		if vida <= 0:
 			muerte_mini_jefe()

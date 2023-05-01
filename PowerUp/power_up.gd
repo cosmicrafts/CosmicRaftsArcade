@@ -23,6 +23,7 @@ func _on_body_entered(body):
 		$Sonido.play()
 		#self.monitoring = false
 		$Sprite2D.visible = false
+		$Contorno.visible = false
 		#$CollisionShape2D.disabled = true
 		#get_node("CollisionShape2D").disabled = true
 		#monitorable = false
@@ -32,9 +33,6 @@ func _on_body_entered(body):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
-
-
-
 
 func _on_sonido_finished():
 	queue_free()

@@ -1,25 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcu4gia2hxb2m"]
 
-[ext_resource type="Texture2D" uid="uid://cotc5stron36o" path="res://Assets/PowerUp/cañon.png" id="1_mi765"]
 [ext_resource type="Script" path="res://PowerUp/cañon_powerup.gd" id="1_yr663"]
+[ext_resource type="Texture2D" uid="uid://5cxnge5cfgls" path="res://Assets/PowerUp/cañon_power.webp" id="2_67xo1"]
 [ext_resource type="AudioStream" uid="uid://b53kr42yaamqn" path="res://Assets/PowerUp/powerup.wav" id="3_13kwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df1jc"]
-size = Vector2(57, 42)
+size = Vector2(42, 50)
 
 [node name="CañonPowerUp" type="Area2D"]
 script = ExtResource("1_yr663")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mi765")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_67xo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_df1jc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.499999, 3)
-scale = Vector2(2.75, 2)
+position = Vector2(7.15256e-07, 0.5)
+scale = Vector2(2, 2.45)
 
 [node name="Sonido" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_13kwg")

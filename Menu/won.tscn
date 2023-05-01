@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ehl7aid51rtj"]
+[gd_scene load_steps=11 format=3 uid="uid://ehl7aid51rtj"]
 
 [ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_73v12"]
 [ext_resource type="Script" path="res://Menu/won.gd" id="1_g77ac"]
@@ -6,6 +6,68 @@
 [ext_resource type="Texture2D" uid="uid://d21eneg0kr1n4" path="res://Assets/menu/victory_defeat/victory.png" id="4_5o5yb"]
 [ext_resource type="Texture2D" uid="uid://btepwf42msjwl" path="res://Assets/menu/victory_defeat/continue.png" id="5_x1dac"]
 [ext_resource type="AudioStream" uid="uid://bpo05u8eba0q5" path="res://Assets/menu/victory_defeat/gaming-8bit-music-hyperloop-by-infraction-amp-alexi-action.mp3" id="6_7ewkj"]
+[ext_resource type="AudioStream" uid="uid://gpfch20bluwj" path="res://Assets/menu/sonidos/drum-percussion-pop-button_C_minor.wav" id="7_ghkx7"]
+
+[sub_resource type="Animation" id="Animation_g0x5p"]
+resource_name = "pulsar"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(229, 410), Vector2(218, 410)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Continue:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yt3lu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(218, 410)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Continue:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixos6"]
+_data = {
+"RESET": SubResource("Animation_yt3lu"),
+"pulsar": SubResource("Animation_g0x5p")
+}
 
 [node name="Won" type="Control"]
 layout_mode = 3
@@ -83,4 +145,13 @@ texture_normal = ExtResource("5_x1dac")
 stream = ExtResource("6_7ewkj")
 autoplay = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ixos6")
+}
+
+[node name="SonidoPulsar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ghkx7")
+
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

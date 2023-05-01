@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://l42l6x0olhkq"]
+[gd_scene load_steps=11 format=3 uid="uid://l42l6x0olhkq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_4c58e"]
 [ext_resource type="Texture2D" uid="uid://dem7f0m5pah4p" path="res://Assets/Player/aniglen_ship.png" id="2_nd0at"]
 [ext_resource type="Texture2D" uid="uid://f38uurrbrc80" path="res://Assets/Propulsores/Thruster_01.png" id="2_wvuyf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4xxdy"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_204vd"]
 atlas = ExtResource("2_wvuyf")
@@ -49,6 +52,7 @@ script = ExtResource("1_4c58e")
 
 [node name="Propulsor" type="AnimatedSprite2D" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_4xxdy")
 position = Vector2(2, 40)
 rotation = 1.5708
 scale = Vector2(0.717605, 0.658686)

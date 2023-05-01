@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bj4sp534yxx0g"]
+[gd_scene load_steps=22 format=3 uid="uid://bj4sp534yxx0g"]
 
 [ext_resource type="Script" path="res://Enemigo/explosion.gd" id="1_4fgiw"]
 [ext_resource type="AudioStream" uid="uid://ctitu8sc2ux2f" path="res://Assets/enemigos/Explosion.ogg" id="7_xlacw"]
 [ext_resource type="Texture2D" uid="uid://brac2ajw8bqic" path="res://Assets/enemigos/An_Expl_02.png" id="8_c8n31"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s3ipq"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kisxc"]
 atlas = ExtResource("8_c8n31")
@@ -132,6 +135,7 @@ stream = ExtResource("7_xlacw")
 volume_db = -6.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_s3ipq")
 sprite_frames = SubResource("SpriteFrames_aateh")
 animation = &"Explosion"
 

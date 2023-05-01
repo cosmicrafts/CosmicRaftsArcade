@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2eg8mhh1chbh"]
+[gd_scene load_steps=15 format=3 uid="uid://b2eg8mhh1chbh"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
 [ext_resource type="Texture2D" uid="uid://ca1utrff242rd" path="res://Assets/Parallax/Star_background_1.png" id="3_3f6sf"]
@@ -14,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://ctjjj1kvprjlw" path="res://Assets/Nivel/music/Common Fight.ogg" id="9_6i1wv"]
 [ext_resource type="PackedScene" uid="uid://ded2gqqp3ddqj" path="res://Enemigo/enemigo.tscn" id="10_8eutm"]
 [ext_resource type="PackedScene" uid="uid://c4l7k1ciir6lj" path="res://Jefes/mini_jefe.tscn" id="13_egbun"]
-[ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="16_mb1v7"]
 
 [node name="Level1" type="Node2D" groups=["Nivel"]]
 script = ExtResource("1_i0ap0")
@@ -119,9 +118,6 @@ position = Vector2(350, -55)
 wait_time = 60.0
 one_shot = true
 autostart = true
-
-[node name="PowerUp" parent="." instance=ExtResource("16_mb1v7")]
-position = Vector2(480, -62)
 
 [node name="PosicionPlayer" type="Marker2D" parent="."]
 position = Vector2(393, 1477)

@@ -1,6 +1,6 @@
 extends Area2D
 
-#const EXPLOSION: PackedScene = preload("res://Enemigo/asteroide_10.tscn")
+const EXPLOSION: PackedScene = preload("res://Enemigo/explosion.tscn")
 const ASTEROIDE_PEQUEÑO: PackedScene = preload("res://Enemigo/asteroide_10_pequeño.tscn")
 
 @onready var window_size: Vector2  = get_viewport_rect().size
@@ -27,6 +27,11 @@ func _physics_process(delta):
 
 func kill():
 	var main = get_tree().current_scene
+	
+	var explosion_fx = EXPLOSION.instantiate()
+	main.add_child(explosion_fx) 
+	explosion_fx.global_position = global_position
+	
 	var asteroid = ASTEROIDE_PEQUEÑO.instantiate()
 	main.call_deferred("add_child", asteroid )
 	asteroid.global_position = global_position

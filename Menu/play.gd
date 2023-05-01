@@ -31,12 +31,14 @@ func _ready():
 	$TituloNave.text = titulo_nave[Global.nave]
 
 func _on_play_button_pressed():
+	$SonidoPulsar.playing = true
 	$AnimationPlayer.play("boton_play")
 	#get_tree().change_scene_to_file("res://Levels/level_1.tscn")
 	#pass
 
 
 func _on_hero_pressed():
+	$SonidoPulsar.playing = true
 	get_tree().change_scene_to_file("res://Menu/heroe_seleccion.tscn")
 
 

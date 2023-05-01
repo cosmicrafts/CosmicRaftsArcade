@@ -1,28 +1,200 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkwyyqgvktuef"]
+[gd_scene load_steps=26 format=3 uid="uid://bkwyyqgvktuef"]
 
-[ext_resource type="Texture2D" uid="uid://ct540c0viltvj" path="res://Assets/PowerUp/powerup.png" id="1_uh3fv"]
 [ext_resource type="Script" path="res://PowerUp/power_up.gd" id="1_v2utc"]
+[ext_resource type="Texture2D" uid="uid://bhvma3a4y7bhk" path="res://Assets/PowerUp/B_Lightnin2.png" id="2_qdskd"]
 [ext_resource type="AudioStream" uid="uid://b53kr42yaamqn" path="res://Assets/PowerUp/powerup.wav" id="3_8b56k"]
+[ext_resource type="Texture2D" uid="uid://dhjwlngjum5ci" path="res://Assets/PowerUp/rashito.png" id="4_ol5bq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df1jc"]
-size = Vector2(48, 48)
+size = Vector2(38, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjtv7"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(0, 0, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v36ix"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(156, 0, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4gpa"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(312, 0, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdfl6"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(468, 0, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yxpg"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(0, 156, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyenh"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(156, 156, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cobiu"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(312, 156, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0on1"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(468, 156, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni6k5"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(0, 312, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a85qp"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(156, 312, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx1gw"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(312, 312, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpqvk"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(468, 312, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wuj5"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(0, 468, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyir2"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(156, 468, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if2dt"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(312, 468, 156, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74dms"]
+atlas = ExtResource("4_ol5bq")
+region = Rect2(468, 468, 156, 156)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tu6yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjtv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v36ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4gpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdfl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yxpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyenh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cobiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0on1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni6k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a85qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx1gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpqvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wuj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyir2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if2dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74dms")
+}],
+"loop": true,
+"name": &"animacion",
+"speed": 16.0
+}]
+
+[sub_resource type="Animation" id="Animation_2wycc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3fe0p"]
+resource_name = "rayo"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsgui"]
+_data = {
+"RESET": SubResource("Animation_2wycc"),
+"rayo": SubResource("Animation_3fe0p")
+}
 
 [node name="PowerUp" type="Area2D"]
 script = ExtResource("1_v2utc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uh3fv")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_qdskd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_df1jc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-2.86102e-06, 7.15256e-07)
-scale = Vector2(2.2, 2.2)
+position = Vector2(3.57628e-07, 7.15256e-07)
+scale = Vector2(1.9, 2.2)
 
 [node name="Sonido" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8b56k")
+
+[node name="Contorno" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_tu6yt")
+animation = &"animacion"
+autoplay = "animacion"
+frame_progress = 0.23441
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rayo"
+libraries = {
+"": SubResource("AnimationLibrary_vsgui")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

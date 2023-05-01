@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3s614eevyms4"]
+[gd_scene load_steps=10 format=3 uid="uid://c3s614eevyms4"]
 
 [ext_resource type="Texture2D" uid="uid://cfr8w12uydr2u" path="res://Assets/enemigos/escudo_azul.png" id="1_1v5e5"]
 [ext_resource type="Script" path="res://Jefes/barrera.gd" id="1_wnl5s"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8tam"]
+blend_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrihd"]
 radius = 66.1891
@@ -154,6 +157,7 @@ script = ExtResource("1_wnl5s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.607843)
+material = SubResource("CanvasItemMaterial_c8tam")
 position = Vector2(-6.55651e-07, 0)
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("1_1v5e5")

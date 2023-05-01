@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt3gbpr2y8ghi"]
+[gd_scene load_steps=10 format=3 uid="uid://dt3gbpr2y8ghi"]
 
 [ext_resource type="Script" path="res://Balas/bala_mini_jefe.gd" id="1_jm1sv"]
 [ext_resource type="Texture2D" uid="uid://dsbqcboovoh5w" path="res://Assets/Disparos/shoot1.png" id="2_7ioai"]
 [ext_resource type="Texture2D" uid="uid://mx5qjbmhq3vm" path="res://Assets/Disparos/Shoot_001.png" id="2_mgrtc"]
 [ext_resource type="AudioStream" uid="uid://ldwlaxkistn0" path="res://Assets/Disparos/sounds/Shoot.ogg" id="3_u65e6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tix1q"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ykb8y"]
 atlas = ExtResource("2_mgrtc")
@@ -42,6 +45,7 @@ texture = ExtResource("2_7ioai")
 region_rect = Rect2(230, 240, 60, 30)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_tix1q")
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wic52")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dumajgs7pwcvi"]
+[gd_scene load_steps=11 format=3 uid="uid://dumajgs7pwcvi"]
 
 [ext_resource type="Script" path="res://Menu/game_over.gd" id="1_bx8ad"]
 [ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_wscrq"]
@@ -6,6 +6,68 @@
 [ext_resource type="AudioStream" uid="uid://bw8oa2w2nmqd0" path="res://Assets/menu/hud/music/Game Over.ogg" id="3_6wg8q"]
 [ext_resource type="Texture2D" uid="uid://dk1qg26gn4i3f" path="res://Assets/menu/victory_defeat/defeat.png" id="4_c7t64"]
 [ext_resource type="Texture2D" uid="uid://btepwf42msjwl" path="res://Assets/menu/victory_defeat/continue.png" id="5_ck7a3"]
+[ext_resource type="AudioStream" uid="uid://gpfch20bluwj" path="res://Assets/menu/sonidos/drum-percussion-pop-button_C_minor.wav" id="7_amj8y"]
+
+[sub_resource type="Animation" id="Animation_bone2"]
+resource_name = "pulsar"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Continue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(231, 410), Vector2(218, 410)]
+}
+
+[sub_resource type="Animation" id="Animation_pfq0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Continue:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Continue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(218, 410)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6h2i"]
+_data = {
+"RESET": SubResource("Animation_pfq0g"),
+"pulsar": SubResource("Animation_bone2")
+}
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -72,4 +134,13 @@ offset_right = 507.0
 offset_bottom = 483.0
 texture_normal = ExtResource("5_ck7a3")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c6h2i")
+}
+
+[node name="SonidoPulsar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_amj8y")
+
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
