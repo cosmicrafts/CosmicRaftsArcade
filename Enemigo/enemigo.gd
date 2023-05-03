@@ -29,7 +29,7 @@ func _on_area_entered(area):
 		queue_free()
 		#print("random:", Global.random(0, 5))
 		# probabilidad que salga un powerup al morir enemigo
-		if Global.random(0, 12) < 1:
+		if Global.random(0, 11) <= 1:
 			power_up()
 
 
@@ -45,13 +45,15 @@ func _on_body_entered(body):
 func power_up():
 	var opcion = Global.random(0, 3) # probabilidad entre un cañon o velocidad de disparo
 	if opcion < 2:
-		var power_up = PowerUp.instantiate()
-		get_parent().call_deferred("add_child", power_up)
-		power_up.global_position = global_position
+		if Global.bala_timer > 0.21: # si se tiene la velocidad maxima permitida ya no crea mas
+			var power_up = PowerUp.instantiate()
+			get_parent().call_deferred("add_child", power_up)
+			power_up.global_position = global_position
 	elif opcion > 2:
-		var cañon = CañonPowerUp.instantiate()
-		get_parent().call_deferred("add_child", cañon)
-		cañon.global_position = global_position
+		if Global.cañon < 3: # si ya se tiene el numero maximo y no se crean nuevos
+			var cañon = CañonPowerUp.instantiate()
+			get_parent().call_deferred("add_child", cañon)
+			cañon.global_position = global_position
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

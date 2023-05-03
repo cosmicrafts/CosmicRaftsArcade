@@ -23,7 +23,7 @@ Asteroide = ExtResource("4_dqtxg")
 
 [node name="Fondo" type="ParallaxBackground" parent="."]
 script = ExtResource("3_onmgj")
-speed = 1
+speed = 2
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo"]
 

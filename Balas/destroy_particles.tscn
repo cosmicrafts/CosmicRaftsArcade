@@ -8,6 +8,7 @@ _data = [Vector2(0, 2.97273), 0.0, 0.0, 0, 0, Vector2(0.778281, 1.06364), 0.0, 0
 point_count = 3
 
 [node name="DestroyParticles" type="CPUParticles2D"]
+scale = Vector2(2, 2)
 emitting = false
 amount = 12
 one_shot = true
@@ -25,3 +26,8 @@ scale_amount_min = 2.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_gfcmb")
 script = ExtResource("1_taatv")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
