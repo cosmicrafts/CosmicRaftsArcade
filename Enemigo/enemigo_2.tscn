@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://djrpsnq34ywvo"]
+
+[ext_resource type="Script" path="res://Enemigo/enemigo_2.gd" id="1_iv878"]
+[ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="1_s66dq"]
+[ext_resource type="Texture2D" uid="uid://cpu3laxwbxuq1" path="res://Assets/enemigos/enemigo2.png" id="2_slaha"]
+[ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_usdhg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vspym"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1n4p"]
+atlas = ExtResource("1_s66dq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h11j8"]
+atlas = ExtResource("1_s66dq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuk2t"]
+atlas = ExtResource("1_s66dq")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t2o2"]
+atlas = ExtResource("1_s66dq")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhg3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1n4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h11j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuk2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t2o2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb320"]
+radius = 36.0
+height = 119.0
+
+[sub_resource type="Animation" id="Animation_era40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pa2pj"]
+resource_name = "daño"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.862745, 0, 0.184314, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wp8e"]
+_data = {
+"RESET": SubResource("Animation_era40"),
+"daño": SubResource("Animation_pa2pj")
+}
+
+[node name="Enemigo2" type="Area2D" groups=["Enemigo"]]
+script = ExtResource("1_iv878")
+Explosion = ExtResource("2_usdhg")
+
+[node name="Propulsor" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_vspym")
+position = Vector2(0, -45)
+sprite_frames = SubResource("SpriteFrames_uhg3o")
+animation = &"move"
+autoplay = "move"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_slaha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("CapsuleShape2D_bb320")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.26498e-06, 0.500002)
+scale = Vector2(2.9, 4.45)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4wp8e")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

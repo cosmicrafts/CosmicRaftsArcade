@@ -3,6 +3,7 @@ extends Area2D
 @export var Bala:PackedScene
 @export var Explosion:PackedScene
 @onready var player = get_node("/root/Level1/Player")
+const ENEMIGO:PackedScene = preload("res://Enemigo/enemigo.tscn")
 #@export var Hub:PackedScene
 #var particles = preload("res://Balas/destroy_particles.tscn")
 
@@ -42,12 +43,22 @@ func _physics_process(delta):
 		$Barrera.get_node("AnimationPlayer").play("activate")
 		$Propulsor.visible = true
 		activado = true
+		
 		fase += 1
 		
 		# apuntar hacia donde se va desplazar el mini jefe (embestida_Ataque)
 		direccion = position.direction_to(player.position)
 		#direccion = position.direction_to(Global.player.position)
-
+		
+		
+			
+# muchos enemigos embisten ayuda al minijefe
+func enemigos_embestida(n:int):
+	for i in range(n):
+		var enemigo = ENEMIGO.instantiate()
+		get_parent().add_child(enemigo)
+		#enemigo.global_position = global_position
+		enemigo.global_position = Vector2(Global.random(34, 687), position.y)
 
 func mover(delta):
 	if position.y < 240:
@@ -66,6 +77,14 @@ func mover(delta):
 		$Barrera.get_node("AnimationPlayer").play("desactivate")
 		activado = false
 		#print("deracha=true")
+		
+		match fase:
+			1:
+				enemigos_embestida(5)
+			2:
+				enemigos_embestida(10)
+			3:
+				enemigos_embestida(15)
 
 	if izquierda:
 		position.x -= speed_x * delta

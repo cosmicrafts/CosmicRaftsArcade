@@ -2,6 +2,7 @@ extends Node2D
 
 
 @export var Enemigo:PackedScene
+@export var Enemigo2:PackedScene
 @export var MiniJefe:PackedScene
 @export var Asteroide:PackedScene
 
@@ -12,6 +13,7 @@ func _ready():
 	
 	$BgMusic.play()
 	$EnemyTimer.start()
+	$AsteroideTimer.start()
 	randomize()
 	
 	# instanciar nave del juegador
@@ -35,14 +37,25 @@ func _on_enemy_timer_timeout():
 	enemigo.position = $EnemigoSpawn.position
 	$EnemyTimer.wait_time = Global.random(0.2, 2.5)  # rango de tiempo de aparicion del enemigo
 	$EnemyTimer.start()
-	
-	var asteroide = Asteroide.instantiate()
-	add_child(asteroide)
-	asteroide.position = $EnemigoSpawn.position
 
 # depues de 60 segundo entrara el minijefe y dejara de spamear los enemigos
 func _on_timer_inicio_mini_jefe_timeout():
 	$EnemyTimer.stop()
+	$AsteroideTimer.stop()
 	var mini_jefe = MiniJefe.instantiate()
 	add_child(mini_jefe)
 	mini_jefe.position = $MiniJefe.position
+
+
+func _on_asteroide_timer_timeout():
+	#$EnemigoSpawn.position = Vector2(Global.random(34, 687), position.y)
+	var asteroide = Asteroide.instantiate()
+	add_child(asteroide)
+	asteroide.position = $EnemigoSpawn.position
+	
+	var enemigo2 = Enemigo2.instantiate()
+	add_child(enemigo2)
+	enemigo2.position = $EnemigoSpawn.position
+	
+	$AsteroideTimer.wait_time = Global.random(1.5, 3.5)  # rango de tiempo de aparicion del asteroide
+	$AsteroideTimer.start()

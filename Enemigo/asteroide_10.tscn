@@ -45,7 +45,7 @@ _data = {
 
 [node name="Asteroide10" type="Area2D" groups=["Enemigo"]]
 script = ExtResource("1_f30pw")
-speed = Vector2(80, 40)
+speed = Vector2(60, 20)
 health = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

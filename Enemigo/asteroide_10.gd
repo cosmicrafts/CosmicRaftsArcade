@@ -2,6 +2,9 @@ extends Area2D
 
 const EXPLOSION: PackedScene = preload("res://Enemigo/explosion.tscn")
 const ASTEROIDE_PEQUEÑO: PackedScene = preload("res://Enemigo/asteroide_10_pequeño.tscn")
+const ASTEROIDE1: CompressedTexture2D = preload("res://Assets/enemigos/Asteroid10.png")
+const ASTEROIDE2: CompressedTexture2D = preload("res://Assets/enemigos/AsteroidSpecial04.png")
+const ASTEROIDE3: CompressedTexture2D = preload("res://Assets/enemigos/AsteroidSpecial03.png")
 
 @onready var window_size: Vector2  = get_viewport_rect().size
 
@@ -9,10 +12,18 @@ const ASTEROIDE_PEQUEÑO: PackedScene = preload("res://Enemigo/asteroide_10_pequ
 @export var health: int = 3
 
 var dir := -1
+@onready var seleccion_asteroide = Global.random(0, 2)
 
 func _ready():
 	dir = Global.random(-2, 2)
-	#dir = 1
+	#dir = Global.random(-4, 4)
+	if seleccion_asteroide < 1:
+		if seleccion_asteroide > 0.5:
+			$Sprite2D.texture = ASTEROIDE1
+		elif seleccion_asteroide > 0:
+			$Sprite2D.texture = ASTEROIDE3
+	elif seleccion_asteroide > 1:
+		$Sprite2D.texture = ASTEROIDE2
 	#print("dir:", dir)
 
 func _physics_process(delta):

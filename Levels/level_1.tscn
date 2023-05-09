@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2eg8mhh1chbh"]
+[gd_scene load_steps=18 format=3 uid="uid://b2eg8mhh1chbh"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
+[ext_resource type="PackedScene" uid="uid://djrpsnq34ywvo" path="res://Enemigo/enemigo_2.tscn" id="3_jc67p"]
 [ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="3_onmgj"]
 [ext_resource type="PackedScene" uid="uid://k4efs4sopgl8" path="res://Enemigo/asteroide_10.tscn" id="4_dqtxg"]
 [ext_resource type="Texture2D" uid="uid://eukkk7ivqt8p" path="res://Assets/Parallax/Star_background_3.png" id="6_lkaq7"]
@@ -20,6 +21,7 @@
 [node name="Level1" type="Node2D" groups=["Nivel"]]
 script = ExtResource("1_i0ap0")
 Enemigo = ExtResource("10_8eutm")
+Enemigo2 = ExtResource("3_jc67p")
 MiniJefe = ExtResource("13_egbun")
 Asteroide = ExtResource("4_dqtxg")
 
@@ -93,6 +95,7 @@ position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta5/ParallaxLayer"]
 position = Vector2(-308, -1216)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_s8cwi")
 centered = false
 
@@ -123,6 +126,8 @@ stream = ExtResource("9_6i1wv")
 volume_db = -10.0
 autoplay = true
 
+[node name="AsteroideTimer" type="Timer" parent="."]
+
 [node name="EnemyTimer" type="Timer" parent="."]
 
 [node name="EnemigoSpawn" type="Marker2D" parent="."]
@@ -135,7 +140,7 @@ skew = 0.000903845
 position = Vector2(350, -55)
 
 [node name="TimerInicioMiniJefe" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 75.0
 one_shot = true
 autostart = true
 
@@ -143,5 +148,6 @@ autostart = true
 position = Vector2(393, 1477)
 
 [connection signal="game_over" from="Hub" to="." method="_on_hub_game_over"]
+[connection signal="timeout" from="AsteroideTimer" to="." method="_on_asteroide_timer_timeout"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="TimerInicioMiniJefe" to="." method="_on_timer_inicio_mini_jefe_timeout"]

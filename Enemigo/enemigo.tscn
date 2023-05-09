@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ded2gqqp3ddqj"]
+[gd_scene load_steps=14 format=3 uid="uid://ded2gqqp3ddqj"]
 
 [ext_resource type="Script" path="res://Enemigo/enemigo.gd" id="1_2wi1a"]
 [ext_resource type="Texture2D" uid="uid://dvynga487xyp0" path="res://Assets/enemigos/enemigo1.png" id="1_dcllu"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="3_b8uit"]
 [ext_resource type="PackedScene" uid="uid://bcu4gia2hxb2m" path="res://PowerUp/cañon_powerup.tscn" id="4_33v4f"]
 [ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="5_ebmtd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3y7qt"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1n4p"]
 atlas = ExtResource("5_ebmtd")
@@ -43,8 +46,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6voja"]
-size = Vector2(72, 100)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fbjr"]
+radius = 34.0
+height = 106.0
 
 [node name="Enemigo" type="Area2D" groups=["Enemigo"]]
 script = ExtResource("1_2wi1a")
@@ -53,6 +57,7 @@ PowerUp = ExtResource("3_b8uit")
 "CañonPowerUp" = ExtResource("4_33v4f")
 
 [node name="Propulsor" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_3y7qt")
 position = Vector2(0, -45)
 sprite_frames = SubResource("SpriteFrames_koqht")
 animation = &"move"
@@ -64,7 +69,7 @@ texture = ExtResource("1_dcllu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_6voja")
+shape = SubResource("CapsuleShape2D_1fbjr")
 
 [node name="ExplosionSpawn" type="Marker2D" parent="."]
 position = Vector2(0, 57)
