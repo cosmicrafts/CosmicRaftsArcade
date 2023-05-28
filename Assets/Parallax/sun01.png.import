@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmjtns33he4qm"
-path="res://.godot/imported/planet08.png-8e0d920c41e06fb19972f1d59f571f31.ctex"
+uid="uid://c3f4ukedeui1b"
+path="res://.godot/imported/sun01.png-4bab4f645138e4403bc9d3db021c33b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Parallax/planet08.png"
-dest_files=["res://.godot/imported/planet08.png-8e0d920c41e06fb19972f1d59f571f31.ctex"]
+source_file="res://Assets/Parallax/sun01.png"
+dest_files=["res://.godot/imported/sun01.png-4bab4f645138e4403bc9d3db021c33b9.ctex"]
 
 [params]
 

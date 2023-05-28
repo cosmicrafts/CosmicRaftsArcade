@@ -43,12 +43,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 16.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fbjr"]
-radius = 34.0
-height = 106.0
+radius = 28.0
+height = 82.0
 
 [node name="Enemigo" type="Area2D" groups=["Enemigo"]]
 script = ExtResource("1_2wi1a")
@@ -58,13 +58,13 @@ PowerUp = ExtResource("3_b8uit")
 
 [node name="Propulsor" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_3y7qt")
-position = Vector2(0, -45)
+position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_koqht")
 animation = &"move"
 autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.23, 0.23)
 texture = ExtResource("1_dcllu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -75,7 +75,8 @@ shape = SubResource("CapsuleShape2D_1fbjr")
 position = Vector2(0, 57)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(3.24, 4.28)
+position = Vector2(-7.15256e-07, 1)
+scale = Vector2(2.8, 3.8)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

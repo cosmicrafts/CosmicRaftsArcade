@@ -17,6 +17,9 @@ func _ready():
 		dir = -2
 	elif  opcion > 1:
 		dir = 2
+	
+	if Global.bala_timer < 0.21:
+		health = 6
 
 func _physics_process(delta):
 	position.x += speed.x * delta * dir

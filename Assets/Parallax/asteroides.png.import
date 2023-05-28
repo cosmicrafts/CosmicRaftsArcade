@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmjtns33he4qm"
-path="res://.godot/imported/planet08.png-8e0d920c41e06fb19972f1d59f571f31.ctex"
+uid="uid://b4qu3mig0lqrc"
+path="res://.godot/imported/asteroides.png-04d40852294efd714e1c2af9fbfffb51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Parallax/planet08.png"
-dest_files=["res://.godot/imported/planet08.png-8e0d920c41e06fb19972f1d59f571f31.ctex"]
+source_file="res://Assets/Parallax/asteroides.png"
+dest_files=["res://.godot/imported/asteroides.png-04d40852294efd714e1c2af9fbfffb51.ctex"]
 
 [params]
 

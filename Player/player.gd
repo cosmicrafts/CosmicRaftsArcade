@@ -24,7 +24,7 @@ func move_player(delta):
 	# limitar  movimiento  del personaje
 	#position.x = clamp(position.x, 0, screensize.x)
 	#position.y = clamp(position.y, 0, screensize.y)
-	if global_position.y > get_global_mouse_position().y + 0.25:  # le sumamos 0.25 ala cordenada "y" para ser ma exacto al acivar
+	if (global_position.y > get_global_mouse_position().y + 0.25) || (global_position.x > get_global_mouse_position().x + 0.25) || (global_position.x < get_global_mouse_position().x - 0.25):  # le sumamos 0.25 ala cordenada "y" para ser ma exacto al acivar
 		$Propulsor.visible = true
 	else :
 		$Propulsor.visible = false

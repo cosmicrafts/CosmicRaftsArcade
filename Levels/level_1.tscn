@@ -1,22 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2eg8mhh1chbh"]
+[gd_scene load_steps=23 format=3 uid="uid://b2eg8mhh1chbh"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
 [ext_resource type="PackedScene" uid="uid://djrpsnq34ywvo" path="res://Enemigo/enemigo_2.tscn" id="3_jc67p"]
 [ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="3_onmgj"]
 [ext_resource type="PackedScene" uid="uid://k4efs4sopgl8" path="res://Enemigo/asteroide_10.tscn" id="4_dqtxg"]
 [ext_resource type="Texture2D" uid="uid://eukkk7ivqt8p" path="res://Assets/Parallax/Star_background_3.png" id="6_lkaq7"]
+[ext_resource type="Texture2D" uid="uid://br60q5jgprxwm" path="res://Assets/Parallax/Starry.jpg" id="7_5r64d"]
 [ext_resource type="PackedScene" uid="uid://ckns5d28x5jmo" path="res://Hub/hub.tscn" id="7_f28iv"]
-[ext_resource type="Texture2D" uid="uid://ckxayq7juun00" path="res://Assets/Parallax/deathstar02.png" id="7_u21ve"]
 [ext_resource type="Texture2D" uid="uid://dddirlmca37hd" path="res://Assets/Parallax/planet03.png" id="7_xd3jw"]
-[ext_resource type="Texture2D" uid="uid://dx3vju4dmodl8" path="res://Assets/Parallax/BGNebula01.png" id="8_03tjr"]
+[ext_resource type="Texture2D" uid="uid://c2yeigk3u87i" path="res://Assets/Parallax/Dark_Asteroid_belt_nebula_galactic_background.png" id="8_4su8w"]
 [ext_resource type="Script" path="res://Camera/camera.gd" id="8_5grob"]
-[ext_resource type="Texture2D" uid="uid://g64iu7ol2me1" path="res://Assets/Parallax/planet08.png" id="8_lhkf8"]
+[ext_resource type="Texture2D" uid="uid://cmjtns33he4qm" path="res://Assets/Parallax/planet08.png" id="8_lhkf8"]
 [ext_resource type="PackedScene" uid="uid://degaj1k1yaeyy" path="res://Camera/camera_2d.tscn" id="8_q5hjc"]
 [ext_resource type="AudioStream" uid="uid://ctjjj1kvprjlw" path="res://Assets/Nivel/music/Common Fight.ogg" id="9_6i1wv"]
+[ext_resource type="Texture2D" uid="uid://c3f4ukedeui1b" path="res://Assets/Parallax/sun01.png" id="9_j5ykp"]
 [ext_resource type="Texture2D" uid="uid://bils7ketyhw7x" path="res://Assets/Parallax/planet04.png" id="9_y1qdb"]
 [ext_resource type="PackedScene" uid="uid://ded2gqqp3ddqj" path="res://Enemigo/enemigo.tscn" id="10_8eutm"]
 [ext_resource type="Texture2D" uid="uid://cnh2vvmqqe6hf" path="res://Assets/Parallax/planet01.png" id="11_s8cwi"]
 [ext_resource type="PackedScene" uid="uid://c4l7k1ciir6lj" path="res://Jefes/mini_jefe.tscn" id="13_egbun"]
+[ext_resource type="Texture2D" uid="uid://bujjwowgie0bu" path="res://Assets/Parallax/clouds.png" id="15_4fph5"]
+[ext_resource type="Texture2D" uid="uid://b4qu3mig0lqrc" path="res://Assets/Parallax/asteroides.png" id="16_bhh2j"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aqmal"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmvlg"]
+blend_mode = 1
 
 [node name="Level1" type="Node2D" groups=["Nivel"]]
 script = ExtResource("1_i0ap0")
@@ -25,6 +34,17 @@ Enemigo2 = ExtResource("3_jc67p")
 MiniJefe = ExtResource("13_egbun")
 Asteroide = ExtResource("4_dqtxg")
 
+[node name="FondoEstrellas" type="ParallaxBackground" parent="."]
+script = ExtResource("3_onmgj")
+speed = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="FondoEstrellas"]
+motion_mirroring = Vector2(0, 1920)
+
+[node name="Sprite2D" type="Sprite2D" parent="FondoEstrellas/ParallaxLayer"]
+texture = ExtResource("7_5r64d")
+centered = false
+
 [node name="Fondo" type="ParallaxBackground" parent="."]
 script = ExtResource("3_onmgj")
 speed = 1
@@ -32,9 +52,9 @@ speed = 1
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer"]
-position = Vector2(0, -1847)
-scale = Vector2(2, 2)
-texture = ExtResource("8_03tjr")
+material = SubResource("CanvasItemMaterial_aqmal")
+position = Vector2(0, -135)
+texture = ExtResource("8_4su8w")
 centered = false
 
 [node name="Planeta4" type="ParallaxBackground" parent="."]
@@ -47,7 +67,7 @@ position = Vector2(-1, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Planeta4/ParallaxLayer"]
 position = Vector2(197, -110)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_xd3jw")
+texture = ExtResource("9_j5ykp")
 centered = false
 
 [node name="Planeta2" type="ParallaxBackground" parent="."]
@@ -58,9 +78,9 @@ speed = 3
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta2/ParallaxLayer"]
-position = Vector2(570, 190)
+position = Vector2(590, 190)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_u21ve")
+texture = ExtResource("7_xd3jw")
 centered = false
 
 [node name="Planeta" type="ParallaxBackground" parent="."]
@@ -71,7 +91,8 @@ speed = 6
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta/ParallaxLayer"]
-texture = ExtResource("8_lhkf8")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_s8cwi")
 centered = false
 
 [node name="Planeta3" type="ParallaxBackground" parent="."]
@@ -91,12 +112,10 @@ script = ExtResource("3_onmgj")
 speed = 10
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta5"]
-position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta5/ParallaxLayer"]
 position = Vector2(-308, -1216)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("11_s8cwi")
+texture = ExtResource("8_lhkf8")
 centered = false
 
 [node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
@@ -113,6 +132,33 @@ position = Vector2(-87, 1599)
 rotation = -1.5708
 scale = Vector2(10, 10)
 texture = ExtResource("6_lkaq7")
+centered = false
+
+[node name="Ateroides" type="ParallaxBackground" parent="."]
+script = ExtResource("3_onmgj")
+speed = 28
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Ateroides"]
+position = Vector2(-1, 0)
+motion_mirroring = Vector2(0, 2227)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ateroides/ParallaxLayer"]
+position = Vector2(-186, 0)
+texture = ExtResource("16_bhh2j")
+centered = false
+
+[node name="Nubes" type="ParallaxBackground" parent="."]
+script = ExtResource("3_onmgj")
+speed = 25
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Nubes"]
+position = Vector2(-1, 0)
+motion_mirroring = Vector2(0, 1920)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nubes/ParallaxLayer"]
+self_modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_jmvlg")
+texture = ExtResource("15_4fph5")
 centered = false
 
 [node name="Hub" parent="." instance=ExtResource("7_f28iv")]

@@ -20,7 +20,7 @@ var vida = 25  # vida del mini jefe
 var puede_disparar = true
 var direccion
 
-var velocidad_embestida = 650 # la velocidad de embestida
+var velocidad_embestida = 700 # la velocidad de embestida
 
 func _physics_process(delta):
 	if !embestir:

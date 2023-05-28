@@ -35,7 +35,10 @@ func _on_enemy_timer_timeout():
 	add_child(enemigo)
 	#enemigo.position = get_node("EnemyPath/EnemySpawn").position
 	enemigo.position = $EnemigoSpawn.position
-	$EnemyTimer.wait_time = Global.random(0.2, 2.5)  # rango de tiempo de aparicion del enemigo
+	if Global.bala_timer > 0.21:
+		$EnemyTimer.wait_time = Global.random(0.2, 2.5)  # rango de tiempo de aparicion del enemigo
+	elif Global.bala_timer < 0.21:
+		$EnemyTimer.wait_time = Global.random(0.2, 0.7)  # rango de tiempo de aparicion del enemigo
 	$EnemyTimer.start()
 
 # depues de 60 segundo entrara el minijefe y dejara de spamear los enemigos
@@ -57,5 +60,9 @@ func _on_asteroide_timer_timeout():
 	add_child(enemigo2)
 	enemigo2.position = $EnemigoSpawn.position
 	
-	$AsteroideTimer.wait_time = Global.random(1.5, 3.5)  # rango de tiempo de aparicion del asteroide
+	if Global.bala_timer > 0.21:
+		$AsteroideTimer.wait_time = Global.random(1.5, 3.5)  # rango de tiempo de aparicion del enemigo
+	elif Global.bala_timer < 0.21:
+		$AsteroideTimer.wait_time = Global.random(0.6, 1.2)  
+	#$AsteroideTimer.wait_time = Global.random(1.5, 3.5)  # rango de tiempo de aparicion del asteroide
 	$AsteroideTimer.start()

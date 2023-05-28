@@ -29,8 +29,15 @@ func _on_area_entered(area):
 		queue_free()
 		#print("random:", Global.random(0, 5))
 		# probabilidad que salga un powerup al morir enemigo
-		if Global.random(0, 10) <= 1:
-			power_up()
+		if Global.bala_timer > 0.7:
+			if Global.random(0, 2) <= 1:
+				power_up()
+		elif Global.bala_timer > 0.5:
+			if Global.random(0, 5) <= 1:
+				power_up()
+		elif Global.bala_timer < 0.5:
+			if Global.random(0, 11) <= 1:
+				power_up()
 
 
 func _on_body_entered(body):
