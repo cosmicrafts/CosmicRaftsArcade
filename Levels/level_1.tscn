@@ -1,17 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2eg8mhh1chbh"]
+[gd_scene load_steps=20 format=3 uid="uid://b2eg8mhh1chbh"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
 [ext_resource type="PackedScene" uid="uid://djrpsnq34ywvo" path="res://Enemigo/enemigo_2.tscn" id="3_jc67p"]
 [ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="3_onmgj"]
 [ext_resource type="PackedScene" uid="uid://k4efs4sopgl8" path="res://Enemigo/asteroide_10.tscn" id="4_dqtxg"]
-[ext_resource type="Texture2D" uid="uid://eukkk7ivqt8p" path="res://Assets/Parallax/Star_background_3.png" id="6_lkaq7"]
 [ext_resource type="Texture2D" uid="uid://br60q5jgprxwm" path="res://Assets/Parallax/Starry.jpg" id="7_5r64d"]
 [ext_resource type="PackedScene" uid="uid://ckns5d28x5jmo" path="res://Hub/hub.tscn" id="7_f28iv"]
 [ext_resource type="Texture2D" uid="uid://dddirlmca37hd" path="res://Assets/Parallax/planet03.png" id="7_xd3jw"]
 [ext_resource type="Texture2D" uid="uid://c2yeigk3u87i" path="res://Assets/Parallax/Dark_Asteroid_belt_nebula_galactic_background.png" id="8_4su8w"]
-[ext_resource type="Script" path="res://Camera/camera.gd" id="8_5grob"]
 [ext_resource type="Texture2D" uid="uid://cmjtns33he4qm" path="res://Assets/Parallax/planet08.png" id="8_lhkf8"]
-[ext_resource type="PackedScene" uid="uid://degaj1k1yaeyy" path="res://Camera/camera_2d.tscn" id="8_q5hjc"]
 [ext_resource type="AudioStream" uid="uid://ctjjj1kvprjlw" path="res://Assets/Nivel/music/Common Fight.ogg" id="9_6i1wv"]
 [ext_resource type="Texture2D" uid="uid://c3f4ukedeui1b" path="res://Assets/Parallax/sun01.png" id="9_j5ykp"]
 [ext_resource type="Texture2D" uid="uid://bils7ketyhw7x" path="res://Assets/Parallax/planet04.png" id="9_y1qdb"]
@@ -118,25 +115,9 @@ position = Vector2(-308, -1216)
 texture = ExtResource("8_lhkf8")
 centered = false
 
-[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
-visible = false
-script = ExtResource("3_onmgj")
-speed = 90
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
-position = Vector2(-1, 0)
-motion_mirroring = Vector2(0, 1600)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer"]
-position = Vector2(-87, 1599)
-rotation = -1.5708
-scale = Vector2(10, 10)
-texture = ExtResource("6_lkaq7")
-centered = false
-
 [node name="Ateroides" type="ParallaxBackground" parent="."]
 script = ExtResource("3_onmgj")
-speed = 28
+speed = 20
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Ateroides"]
 position = Vector2(-1, 0)
@@ -162,10 +143,6 @@ texture = ExtResource("15_4fph5")
 centered = false
 
 [node name="Hub" parent="." instance=ExtResource("7_f28iv")]
-
-[node name="Camera2D" parent="." instance=ExtResource("8_q5hjc")]
-limit_top = -3840
-script = ExtResource("8_5grob")
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_6i1wv")

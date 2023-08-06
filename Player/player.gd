@@ -38,7 +38,7 @@ func _on_input_event(viewport, event, shape_idx):
 
 
 func disparar():
-	$BalaTimer.wait_time = Global.bala_timer
+	$BalaTimer.wait_time = Global.bala_timer  # velocidad de disparo
 	if puede_disparar:
 		
 		match Global.cañon:

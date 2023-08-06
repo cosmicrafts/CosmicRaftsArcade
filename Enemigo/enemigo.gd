@@ -30,7 +30,7 @@ func _on_area_entered(area):
 		#print("random:", Global.random(0, 5))
 		# probabilidad que salga un powerup al morir enemigo
 		if Global.bala_timer > 0.7:
-			if Global.random(0, 2) <= 1:
+			if Global.random(0, 2) <= 1: # la probabilidad es muy alta
 				power_up()
 		elif Global.bala_timer > 0.5:
 			if Global.random(0, 5) <= 1:

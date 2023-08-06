@@ -4,5 +4,4 @@
 
 [node name="Camera2D" type="Camera2D"]
 anchor_mode = 0
-current = true
 script = ExtResource("1_66ayo")

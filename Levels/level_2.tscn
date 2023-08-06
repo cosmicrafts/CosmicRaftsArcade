@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdtnx8dohwkyb"]
+
+[ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="1_4rvv6"]
+[ext_resource type="Texture2D" uid="uid://c3f4ukedeui1b" path="res://Assets/Parallax/sun01.png" id="2_1mikm"]
+[ext_resource type="Texture2D" uid="uid://cmjtns33he4qm" path="res://Assets/Parallax/planet08.png" id="3_4q24w"]
+[ext_resource type="Texture2D" uid="uid://br60q5jgprxwm" path="res://Assets/Parallax/Starry.jpg" id="3_u4duc"]
+[ext_resource type="Texture2D" uid="uid://c2yeigk3u87i" path="res://Assets/Parallax/Dark_Asteroid_belt_nebula_galactic_background.png" id="4_1c38d"]
+[ext_resource type="Texture2D" uid="uid://b4qu3mig0lqrc" path="res://Assets/Parallax/asteroides.png" id="4_ggsqh"]
+[ext_resource type="Texture2D" uid="uid://dddirlmca37hd" path="res://Assets/Parallax/planet03.png" id="6_uior0"]
+[ext_resource type="Texture2D" uid="uid://cnh2vvmqqe6hf" path="res://Assets/Parallax/planet01.png" id="7_yaxf0"]
+[ext_resource type="Texture2D" uid="uid://bils7ketyhw7x" path="res://Assets/Parallax/planet04.png" id="8_nir64"]
+[ext_resource type="Texture2D" uid="uid://bujjwowgie0bu" path="res://Assets/Parallax/clouds.png" id="11_p8rim"]
+[ext_resource type="PackedScene" uid="uid://ckns5d28x5jmo" path="res://Hub/hub.tscn" id="12_t4efp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hupik"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_orr25"]
+blend_mode = 1
+
+[node name="Level2" type="Node2D"]
+
+[node name="FondoEstrellas" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="FondoEstrellas"]
+motion_mirroring = Vector2(0, 1920)
+
+[node name="Sprite2D" type="Sprite2D" parent="FondoEstrellas/ParallaxLayer"]
+texture = ExtResource("3_u4duc")
+centered = false
+
+[node name="Fondo" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer"]
+material = SubResource("CanvasItemMaterial_hupik")
+position = Vector2(0, -135)
+texture = ExtResource("4_1c38d")
+centered = false
+
+[node name="Planeta4" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta4"]
+position = Vector2(-1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta4/ParallaxLayer"]
+position = Vector2(197, -110)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1mikm")
+centered = false
+
+[node name="Planeta2" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 3
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta2"]
+position = Vector2(-1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta2/ParallaxLayer"]
+position = Vector2(590, 190)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_uior0")
+centered = false
+
+[node name="Planeta" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 6
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta"]
+position = Vector2(-1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta/ParallaxLayer"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_yaxf0")
+centered = false
+
+[node name="Planeta3" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 8
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta3"]
+position = Vector2(-1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta3/ParallaxLayer"]
+position = Vector2(8, 733)
+texture = ExtResource("8_nir64")
+centered = false
+
+[node name="Planeta5" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta5"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta5/ParallaxLayer"]
+position = Vector2(-308, -1216)
+texture = ExtResource("3_4q24w")
+centered = false
+
+[node name="Ateroides" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 20
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Ateroides"]
+position = Vector2(-1, 0)
+motion_mirroring = Vector2(0, 2227)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ateroides/ParallaxLayer"]
+position = Vector2(-186, 0)
+texture = ExtResource("4_ggsqh")
+centered = false
+
+[node name="Nubes" type="ParallaxBackground" parent="."]
+script = ExtResource("1_4rvv6")
+speed = 25
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Nubes"]
+position = Vector2(-1, 0)
+motion_mirroring = Vector2(0, 1920)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nubes/ParallaxLayer"]
+self_modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_orr25")
+texture = ExtResource("11_p8rim")
+centered = false
+
+[node name="Hub" parent="." instance=ExtResource("12_t4efp")]
