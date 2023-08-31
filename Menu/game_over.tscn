@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dumajgs7pwcvi"]
+[gd_scene load_steps=12 format=3 uid="uid://dumajgs7pwcvi"]
 
 [ext_resource type="Script" path="res://Menu/game_over.gd" id="1_bx8ad"]
 [ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_wscrq"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dk1qg26gn4i3f" path="res://Assets/menu/victory_defeat/defeat.png" id="4_c7t64"]
 [ext_resource type="Texture2D" uid="uid://btepwf42msjwl" path="res://Assets/menu/victory_defeat/continue.png" id="5_ck7a3"]
 [ext_resource type="AudioStream" uid="uid://gpfch20bluwj" path="res://Assets/menu/sonidos/drum-percussion-pop-button_C_minor.wav" id="7_amj8y"]
+[ext_resource type="Texture2D" uid="uid://cq8g6apaxt1po" path="res://Assets/menu/back.png" id="8_0m36e"]
+[ext_resource type="Texture2D" uid="uid://yyesqaw5yu6c" path="res://Assets/menu/noads.png" id="9_rxfwg"]
 
 [sub_resource type="Animation" id="Animation_bone2"]
 resource_name = "pulsar"
@@ -33,39 +35,11 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(231, 410), Vector2(218, 410)]
-}
-
-[sub_resource type="Animation" id="Animation_pfq0g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Continue:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Continue:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(218, 410)]
+"values": [Vector2(228, -176), Vector2(215, -182)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6h2i"]
 _data = {
-"RESET": SubResource("Animation_pfq0g"),
 "pulsar": SubResource("Animation_bone2")
 }
 
@@ -94,17 +68,14 @@ texture = ExtResource("2_4j74e")
 
 [node name="Defeat" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -387.0
-offset_top = -310.0
-offset_right = 259.0
-offset_bottom = 317.0
+offset_left = -388.0
+offset_top = -769.0
+offset_right = 258.0
+offset_bottom = -142.0
 grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_c7t64")
 stretch_mode = 3
@@ -128,10 +99,10 @@ volume_db = -10.0
 
 [node name="Continue" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 410.0
-offset_right = 507.0
-offset_bottom = 483.0
+offset_left = 215.0
+offset_top = -182.0
+offset_right = 504.0
+offset_bottom = -109.0
 texture_normal = ExtResource("5_ck7a3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -142,5 +113,24 @@ libraries = {
 [node name="SonidoPulsar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_amj8y")
 
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 716.0
+offset_right = 619.0
+offset_bottom = 1134.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_0m36e")
+
+[node name="NoAds" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 711.0
+offset_right = 1128.0
+offset_bottom = 1129.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_rxfwg")
+
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

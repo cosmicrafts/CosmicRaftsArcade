@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_i0ap0"]
 [ext_resource type="PackedScene" uid="uid://djrpsnq34ywvo" path="res://Enemigo/enemigo_2.tscn" id="3_jc67p"]
 [ext_resource type="Script" path="res://ParallaxBackground/parallax_background.gd" id="3_onmgj"]
+[ext_resource type="PackedScene" uid="uid://c4l7k1ciir6lj" path="res://Jefes/klivax.tscn" id="4_bw4b0"]
 [ext_resource type="PackedScene" uid="uid://k4efs4sopgl8" path="res://Enemigo/asteroide_10.tscn" id="4_dqtxg"]
 [ext_resource type="Texture2D" uid="uid://br60q5jgprxwm" path="res://Assets/Parallax/Starry.jpg" id="7_5r64d"]
 [ext_resource type="PackedScene" uid="uid://ckns5d28x5jmo" path="res://Hub/hub.tscn" id="7_f28iv"]
@@ -14,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bils7ketyhw7x" path="res://Assets/Parallax/planet04.png" id="9_y1qdb"]
 [ext_resource type="PackedScene" uid="uid://ded2gqqp3ddqj" path="res://Enemigo/enemigo.tscn" id="10_8eutm"]
 [ext_resource type="Texture2D" uid="uid://cnh2vvmqqe6hf" path="res://Assets/Parallax/planet01.png" id="11_s8cwi"]
-[ext_resource type="PackedScene" uid="uid://c4l7k1ciir6lj" path="res://Jefes/mini_jefe.tscn" id="13_egbun"]
 [ext_resource type="Texture2D" uid="uid://bujjwowgie0bu" path="res://Assets/Parallax/clouds.png" id="15_4fph5"]
 [ext_resource type="Texture2D" uid="uid://b4qu3mig0lqrc" path="res://Assets/Parallax/asteroides.png" id="16_bhh2j"]
 
@@ -28,7 +28,7 @@ blend_mode = 1
 script = ExtResource("1_i0ap0")
 Enemigo = ExtResource("10_8eutm")
 Enemigo2 = ExtResource("3_jc67p")
-MiniJefe = ExtResource("13_egbun")
+MiniJefe = ExtResource("4_bw4b0")
 Asteroide = ExtResource("4_dqtxg")
 
 [node name="FondoEstrellas" type="ParallaxBackground" parent="."]
@@ -163,7 +163,7 @@ skew = 0.000903845
 position = Vector2(350, -55)
 
 [node name="TimerInicioMiniJefe" type="Timer" parent="."]
-wait_time = 75.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 

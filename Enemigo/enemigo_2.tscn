@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Enemigo/enemigo_2.gd" id="1_iv878"]
 [ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="1_s66dq"]
-[ext_resource type="Texture2D" uid="uid://cpu3laxwbxuq1" path="res://Assets/enemigos/enemigo2.png" id="2_slaha"]
 [ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_usdhg"]
+[ext_resource type="Texture2D" uid="uid://cvflt1juidwhi" path="res://Assets/enemigos/archs/Jexthra.png" id="5_3rgca"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vspym"]
 blend_mode = 1
@@ -46,7 +46,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb320"]
 radius = 36.0
-height = 119.0
+height = 83.0
 
 [sub_resource type="Animation" id="Animation_era40"]
 length = 0.001
@@ -90,6 +90,7 @@ script = ExtResource("1_iv878")
 Explosion = ExtResource("2_usdhg")
 
 [node name="Propulsor" type="AnimatedSprite2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_vspym")
 position = Vector2(0, -45)
 sprite_frames = SubResource("SpriteFrames_uhg3o")
@@ -97,16 +98,16 @@ animation = &"move"
 autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_slaha")
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_3rgca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("CapsuleShape2D_bb320")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-2.26498e-06, 0.500002)
-scale = Vector2(2.9, 4.45)
+position = Vector2(-2.26498e-06, -0.499999)
+scale = Vector2(2.9, 3.65)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

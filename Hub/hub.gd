@@ -12,6 +12,7 @@ func _physics_process(delta):
 func juego_terminado():
 	emit_signal("game_over")
 	#$GameOverContainer.visible = true
+	await get_tree().create_timer(1.5).timeout # para mostrar la explosion
 	
 	# resetear la velocidad de disparo
 	Global.bala_timer = 1.0

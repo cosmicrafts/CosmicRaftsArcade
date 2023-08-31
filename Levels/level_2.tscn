@@ -51,9 +51,9 @@ speed = 2
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta4/ParallaxLayer"]
-position = Vector2(197, -110)
+position = Vector2(559, -110)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_1mikm")
+texture = ExtResource("3_4q24w")
 centered = false
 
 [node name="Planeta2" type="ParallaxBackground" parent="."]
@@ -64,9 +64,9 @@ speed = 3
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta2/ParallaxLayer"]
-position = Vector2(590, 190)
+position = Vector2(48.0001, 204)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_uior0")
+texture = ExtResource("7_yaxf0")
 centered = false
 
 [node name="Planeta" type="ParallaxBackground" parent="."]
@@ -77,8 +77,9 @@ speed = 6
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta/ParallaxLayer"]
+position = Vector2(214, 0)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_yaxf0")
+texture = ExtResource("8_nir64")
 centered = false
 
 [node name="Planeta3" type="ParallaxBackground" parent="."]
@@ -89,8 +90,8 @@ speed = 8
 position = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta3/ParallaxLayer"]
-position = Vector2(8, 733)
-texture = ExtResource("8_nir64")
+position = Vector2(-277, 733)
+texture = ExtResource("6_uior0")
 centered = false
 
 [node name="Planeta5" type="ParallaxBackground" parent="."]
@@ -100,11 +101,13 @@ speed = 10
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Planeta5"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Planeta5/ParallaxLayer"]
-position = Vector2(-308, -1216)
-texture = ExtResource("3_4q24w")
+position = Vector2(-192, -1216)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_1mikm")
 centered = false
 
 [node name="Ateroides" type="ParallaxBackground" parent="."]
+visible = false
 script = ExtResource("1_4rvv6")
 speed = 20
 

@@ -2,7 +2,8 @@ extends Area2D
 
 @export var Bala:PackedScene
 @export var Explosion:PackedScene
-@onready var player = get_node("/root/Level1/Player")
+#@onready var player = get_node("/root/Level1/Player")
+@onready var player = get_node("/root/Level1/" + Global.NOMBRE_NAVE[Global.nave])
 const ENEMIGO:PackedScene = preload("res://Enemigo/enemigo.tscn")
 #@export var Hub:PackedScene
 #var particles = preload("res://Balas/destroy_particles.tscn")
@@ -25,8 +26,8 @@ var velocidad_embestida = 700 # la velocidad de embestida
 func _physics_process(delta):
 	if !embestir:
 		mover(delta)
-		
-		disparar()
+		if player != null:  # si el jugador no existe no dispara (para evitar un error con la bala del jefe cuando muete el jugador)
+			disparar()
 	elif embestir:
 		#print("embestir")
 		#embestir = true
@@ -47,6 +48,7 @@ func _physics_process(delta):
 		fase += 1
 		
 		# apuntar hacia donde se va desplazar el mini jefe (embestida_Ataque)
+		#direccion = position.direction_to(player.position)
 		direccion = position.direction_to(player.position)
 		#direccion = position.direction_to(Global.player.position)
 		
@@ -120,6 +122,7 @@ func disparar():
 		$BalaTimer.wait_time = Global.random(0.1, 2)
 
 func _on_bala_timer_timeout():
+	
 	puede_disparar = true
 
 
@@ -137,6 +140,10 @@ func _on_area_entered(area):
 			muerte_mini_jefe()
 			
 func muerte_mini_jefe():
+	Global.nivel = 2  # Guardamos el siguiente nivel a jugar
+	Save.game_data.level = Global.nivel
+	Save.save_data()
+	
 	queue_free()
 	explosion()
 	#fase = 0

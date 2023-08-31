@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ehl7aid51rtj"]
+[gd_scene load_steps=14 format=3 uid="uid://ehl7aid51rtj"]
 
 [ext_resource type="FontFile" uid="uid://dgekqdt3oa1tn" path="res://Assets/menu/hud/fonts/NokiaCellphoneFC.ttf" id="1_73v12"]
 [ext_resource type="Script" path="res://Menu/won.gd" id="1_g77ac"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://btepwf42msjwl" path="res://Assets/menu/victory_defeat/continue.png" id="5_x1dac"]
 [ext_resource type="AudioStream" uid="uid://bpo05u8eba0q5" path="res://Assets/menu/victory_defeat/gaming-8bit-music-hyperloop-by-infraction-amp-alexi-action.mp3" id="6_7ewkj"]
 [ext_resource type="AudioStream" uid="uid://gpfch20bluwj" path="res://Assets/menu/sonidos/drum-percussion-pop-button_C_minor.wav" id="7_ghkx7"]
+[ext_resource type="Texture2D" uid="uid://cq8g6apaxt1po" path="res://Assets/menu/back.png" id="8_vh4nx"]
+[ext_resource type="Texture2D" uid="uid://yyesqaw5yu6c" path="res://Assets/menu/noads.png" id="9_7j770"]
 
 [sub_resource type="Animation" id="Animation_g0x5p"]
 resource_name = "pulsar"
@@ -21,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(229, 410), Vector2(218, 410)]
+"values": [Vector2(201, -162), Vector2(187, -162)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -33,41 +35,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_yt3lu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Continue:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(218, 410)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Continue:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ixos6"]
 _data = {
-"RESET": SubResource("Animation_yt3lu"),
 "pulsar": SubResource("Animation_g0x5p")
 }
+
+[sub_resource type="Gradient" id="Gradient_5tonv"]
+colors = PackedColorArray(0.809742, 0.543144, 1, 1, 0.991112, 0.983118, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rlc0t"]
+gradient = SubResource("Gradient_5tonv")
 
 [node name="Won" type="Control"]
 layout_mode = 3
@@ -82,6 +62,7 @@ grow_vertical = 2
 script = ExtResource("1_g77ac")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 2
 offset_right = 720.0
 offset_bottom = 242.0
@@ -103,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_an1f7")
 
-[node name="Defeat" type="TextureRect" parent="."]
+[node name="Victory" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,9 +92,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -387.0
-offset_top = -310.0
+offset_top = -793.0
 offset_right = 259.0
-offset_bottom = 317.0
+offset_bottom = -166.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
@@ -121,24 +102,27 @@ texture = ExtResource("4_5o5yb")
 stretch_mode = 3
 
 [node name="Label2" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 2.0
-offset_top = -623.0
+offset_top = -580.0
 offset_right = 722.0
-offset_bottom = -502.0
+offset_bottom = -296.0
 theme_override_fonts/font = ExtResource("1_73v12")
-theme_override_font_sizes/font_size = 94
-text = "You Won!"
+theme_override_font_sizes/font_size = 54
+text = "Score:
+Thryzor = 34
+Jexthra = 86
+Tota = 120"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Continue" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 410.0
-offset_right = 507.0
-offset_bottom = 483.0
+offset_left = 201.0
+offset_top = -162.0
+offset_right = 490.0
+offset_bottom = -89.0
+scale = Vector2(1.1, 1.1)
 texture_normal = ExtResource("5_x1dac")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -153,5 +137,30 @@ libraries = {
 [node name="SonidoPulsar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ghkx7")
 
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 716.0
+offset_right = 619.0
+offset_bottom = 1134.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_vh4nx")
+
+[node name="NoAds" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 711.0
+offset_right = 1128.0
+offset_bottom = 1129.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_7j770")
+
+[node name="Ads" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 718.0
+offset_bottom = 710.0
+texture = SubResource("GradientTexture1D_rlc0t")
+
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

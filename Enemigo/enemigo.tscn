@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://ded2gqqp3ddqj"]
 
 [ext_resource type="Script" path="res://Enemigo/enemigo.gd" id="1_2wi1a"]
-[ext_resource type="Texture2D" uid="uid://dvynga487xyp0" path="res://Assets/enemigos/enemigo1.png" id="1_dcllu"]
 [ext_resource type="PackedScene" uid="uid://bj4sp534yxx0g" path="res://Enemigo/explosion.tscn" id="2_sk5n6"]
 [ext_resource type="PackedScene" uid="uid://bkwyyqgvktuef" path="res://PowerUp/power_up.tscn" id="3_b8uit"]
 [ext_resource type="PackedScene" uid="uid://bcu4gia2hxb2m" path="res://PowerUp/cañon_powerup.tscn" id="4_33v4f"]
 [ext_resource type="Texture2D" uid="uid://dagpavfy4qwaa" path="res://Assets/Propulsores/Thruster_02.png" id="5_ebmtd"]
+[ext_resource type="Texture2D" uid="uid://br8ax640tsh5y" path="res://Assets/enemigos/archs/Thryzor.png" id="7_5pl2j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3y7qt"]
 blend_mode = 1
@@ -48,7 +48,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fbjr"]
 radius = 28.0
-height = 82.0
+height = 58.0
 
 [node name="Enemigo" type="Area2D" groups=["Enemigo"]]
 script = ExtResource("1_2wi1a")
@@ -64,8 +64,8 @@ animation = &"move"
 autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.23, 0.23)
-texture = ExtResource("1_dcllu")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_5pl2j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -76,7 +76,7 @@ position = Vector2(0, 57)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-7.15256e-07, 1)
-scale = Vector2(2.8, 3.8)
+scale = Vector2(2.8, 2.9)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

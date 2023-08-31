@@ -1,10 +1,11 @@
 extends Area2D
 
-@onready var player = get_node("/root/Level1/Player")
+#@onready var player = get_node("/root/Level1/Player")
+@onready var player = get_node("/root/Level1/" + Global.NOMBRE_NAVE[Global.nave])
 var speed
 #@onready var direccion = position.direction_to(player.position)
 var direccion
-var activo:bool = true
+var activo:bool = true  # para que direccion no se modifique
 
 func _ready():
 	speed = Global.random(99, 520)

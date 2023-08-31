@@ -5,6 +5,7 @@ extends Node2D
 @export var Enemigo2:PackedScene
 @export var MiniJefe:PackedScene
 @export var Asteroide:PackedScene
+#@export var Player:PackedScene
 
 var player: CharacterBody2D
 
@@ -18,6 +19,7 @@ func _ready():
 	
 	# instanciar nave del juegador
 	player = load(Global.player).instantiate()
+	#player = Player.instantiate()
 	player.global_position = $PosicionPlayer.global_position
 	add_child(player)
 

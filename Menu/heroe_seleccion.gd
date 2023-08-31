@@ -5,6 +5,8 @@ var naves_int = 0
 var player1: String = "res://Player/player.tscn"  # 0
 var player2: String = "res://Player/player2.tscn" # 1
 
+
+
 var naves: Dictionary = {
 	0: "res://Assets/menu/hero_selector/Skorn_Guide.png",
 	1: "res://Assets/menu/hero_selector/aniglen_estadistica.png"
@@ -60,12 +62,18 @@ func asignar_nave():
 
 
 func _on_select_pressed():
+	Save.game_data.ship = Global.nave
+	Save.save_data()  # guardamos los datos
+	
 	$SonidoPulsar.playing = true
 	$AnimationPlayer.play("pulsar")
 	#get_tree().change_scene_to_file("res://Menu/play.tscn")
 
 
 func _on_play_pressed():
+	Save.game_data.ship = Global.nave
+	Save.save_data()  # guardamos los datos
+	
 	$SonidoPulsar.playing = true
 	get_tree().change_scene_to_file("res://Menu/play.tscn")
 

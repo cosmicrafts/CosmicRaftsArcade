@@ -11,4 +11,8 @@ func _on_continue_pressed():
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"pulsar":
-			get_tree().call_deferred("change_scene_to_file","res://Menu/play.tscn")
+			get_tree().call_deferred("change_scene_to_file","res://Menu/load.tscn")
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Menu/play.tscn")

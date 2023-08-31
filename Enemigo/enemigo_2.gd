@@ -27,6 +27,7 @@ func _physics_process(delta):
 	
 	#rotation += 0.01
 	
+	# si llega el borde de la pantalla cambia de direccion
 	if position.x > window_size.x  or position.x < 0:
 		dir *= -1
 
